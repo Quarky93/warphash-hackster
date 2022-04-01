@@ -1,0 +1,142 @@
+
+
+================================================================
+== Vitis HLS Report for 'pass'
+================================================================
+* Date:           Fri Apr  1 01:11:28 2022
+
+* Version:        2021.2 (Build 3367213 on Tue Oct 19 02:47:39 MDT 2021)
+* Project:        hash_controller
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: virtexuplus
+* Target device:  xcvu35p-fsvh2892-2L-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  2.22 ns|  1.621 ns|     0.60 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +----------+----------+-----------+-----------+----------+----------+----------+
+    |   Latency (cycles)  |   Latency (absolute)  |       Interval      | Pipeline |
+    |    min   |    max   |    min    |    max    |    min   |    max   |   Type   |
+    +----------+----------+-----------+-----------+----------+----------+----------+
+    |  67108874|  67108874|  0.149 sec|  0.149 sec|  67108875|  67108875|  dataflow|
+    +----------+----------+-----------+-----------+----------+----------+----------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 2
+* Pipeline : 0
+* Dataflow Pipeline: 1
+  DF-Pipeline-0: Size = 2, States = { 1 2 }
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.32>
+ST_1 : Operation 3 [1/1] (0.00ns)   --->   "%target_read = read i512 @_ssdm_op_Read.ap_auto.i512, i512 %target" [hash_controller/hash_controller.cpp:56]   --->   Operation 3 'read' 'target_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 4 [1/1] (0.00ns)   --->   "%block_header_read = read i512 @_ssdm_op_Read.ap_auto.i512, i512 %block_header" [hash_controller/hash_controller.cpp:56]   --->   Operation 4 'read' 'block_header_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 5 [1/1] (0.00ns)   --->   "%last_read = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %last" [hash_controller/hash_controller.cpp:56]   --->   Operation 5 'read' 'last_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 6 [1/1] (0.00ns)   --->   "%first_read = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %first" [hash_controller/hash_controller.cpp:56]   --->   Operation 6 'read' 'first_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 7 [1/1] (0.00ns)   --->   "%wr_14_read = read i64 @_ssdm_op_Read.ap_auto.i64, i64 %wr_14" [hash_controller/hash_controller.cpp:56]   --->   Operation 7 'read' 'wr_14_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 8 [1/1] (0.00ns)   --->   "%wr_03_read = read i64 @_ssdm_op_Read.ap_auto.i64, i64 %wr_03" [hash_controller/hash_controller.cpp:56]   --->   Operation 8 'read' 'wr_03_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 9 [1/1] (0.00ns)   --->   "%rd_12_read = read i64 @_ssdm_op_Read.ap_auto.i64, i64 %rd_12" [hash_controller/hash_controller.cpp:56]   --->   Operation 9 'read' 'rd_12_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 10 [1/1] (0.00ns)   --->   "%rd_01_read = read i64 @_ssdm_op_Read.ap_auto.i64, i64 %rd_01" [hash_controller/hash_controller.cpp:56]   --->   Operation 10 'read' 'rd_01_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 11 [2/2] (1.14ns)   --->   "%call_ln56 = call void @ingress, i512 %ingress_0_V_data_V, i64 %ingress_0_V_keep_V, i64 %ingress_0_V_strb_V, i1 %ingress_0_V_last_V, i1 %ingress_0_V_dest_V, i256 %rd_0, i64 %rd_01_read, i1 %first_read, i512 %block_header_read" [hash_controller/hash_controller.cpp:56]   --->   Operation 11 'call' 'call_ln56' <Predicate = true> <Delay = 1.14> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_1 : Operation 12 [2/2] (1.14ns)   --->   "%call_ln57 = call void @ingress.1, i512 %ingress_1_V_data_V, i64 %ingress_1_V_keep_V, i64 %ingress_1_V_strb_V, i1 %ingress_1_V_last_V, i1 %ingress_1_V_dest_V, i256 %rd_1, i64 %rd_12_read, i1 %first_read, i512 %block_header_read" [hash_controller/hash_controller.cpp:57]   --->   Operation 12 'call' 'call_ln57' <Predicate = true> <Delay = 1.14> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_1 : Operation 13 [2/2] (1.32ns)   --->   "%call_ln58 = call void @egress, i256 %wr_0, i64 %wr_03_read, i512 %egress_0_V_data_V, i64 %egress_0_V_keep_V, i64 %egress_0_V_strb_V, i1 %egress_0_V_last_V, i1 %egress_0_V_dest_V, i1 %last_read, i512 %target_read, i32 %golden_fifo_0" [hash_controller/hash_controller.cpp:58]   --->   Operation 13 'call' 'call_ln58' <Predicate = true> <Delay = 1.32> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_1 : Operation 14 [2/2] (1.32ns)   --->   "%call_ln59 = call void @egress.1, i256 %wr_1, i64 %wr_14_read, i512 %egress_1_V_data_V, i64 %egress_1_V_keep_V, i64 %egress_1_V_strb_V, i1 %egress_1_V_last_V, i1 %egress_1_V_dest_V, i1 %last_read, i512 %target_read, i32 %golden_fifo_1" [hash_controller/hash_controller.cpp:59]   --->   Operation 14 'call' 'call_ln59' <Predicate = true> <Delay = 1.32> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+
+State 2 <SV = 1> <Delay = 0.38>
+ST_2 : Operation 15 [1/1] (0.00ns)   --->   "%specdataflowpipeline_ln0 = specdataflowpipeline void @_ssdm_op_SpecDataflowPipeline, i32 4294967295, i32 0, void @empty"   --->   Operation 15 'specdataflowpipeline' 'specdataflowpipeline_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 16 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %golden_fifo_1, void @empty_12, i32 0, i32 0, void @empty_13, i32 0, i32 0, void @empty, void @empty, void @empty, i32 0, i32 0, i32 0, i32 0, void @empty, void @empty"   --->   Operation 16 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 17 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %golden_fifo_0, void @empty_12, i32 0, i32 0, void @empty_13, i32 0, i32 0, void @empty, void @empty, void @empty, i32 0, i32 0, i32 0, i32 0, void @empty, void @empty"   --->   Operation 17 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 18 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1 %egress_1_V_dest_V, i1 %egress_1_V_last_V, i64 %egress_1_V_strb_V, i64 %egress_1_V_keep_V, i512 %egress_1_V_data_V, void @empty_12, i32 0, i32 0, void @empty_13, i32 0, i32 0, void @empty, void @empty, void @empty, i32 0, i32 0, i32 0, i32 0, void @empty, void @empty"   --->   Operation 18 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 19 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1 %egress_0_V_dest_V, i1 %egress_0_V_last_V, i64 %egress_0_V_strb_V, i64 %egress_0_V_keep_V, i512 %egress_0_V_data_V, void @empty_12, i32 0, i32 0, void @empty_13, i32 0, i32 0, void @empty, void @empty, void @empty, i32 0, i32 0, i32 0, i32 0, void @empty, void @empty"   --->   Operation 19 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 20 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1 %ingress_1_V_dest_V, i1 %ingress_1_V_last_V, i64 %ingress_1_V_strb_V, i64 %ingress_1_V_keep_V, i512 %ingress_1_V_data_V, void @empty_12, i32 0, i32 0, void @empty_13, i32 0, i32 0, void @empty, void @empty, void @empty, i32 0, i32 0, i32 0, i32 0, void @empty, void @empty"   --->   Operation 20 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 21 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i1 %ingress_0_V_dest_V, i1 %ingress_0_V_last_V, i64 %ingress_0_V_strb_V, i64 %ingress_0_V_keep_V, i512 %ingress_0_V_data_V, void @empty_12, i32 0, i32 0, void @empty_13, i32 0, i32 0, void @empty, void @empty, void @empty, i32 0, i32 0, i32 0, i32 0, void @empty, void @empty"   --->   Operation 21 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 22 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i256 %wr_1, void @empty_10, i32 0, i32 0, void @empty, i32 0, i32 0, void @empty_5, void @empty_1, void @empty, i32 16, i32 16, i32 16, i32 16, void @empty, void @empty"   --->   Operation 22 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 23 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i256 %wr_0, void @empty_10, i32 0, i32 0, void @empty, i32 0, i32 0, void @empty_3, void @empty_1, void @empty, i32 16, i32 16, i32 16, i32 16, void @empty, void @empty"   --->   Operation 23 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 24 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i256 %rd_1, void @empty_10, i32 0, i32 0, void @empty, i32 0, i32 0, void @empty_2, void @empty_1, void @empty, i32 16, i32 16, i32 16, i32 16, void @empty, void @empty"   --->   Operation 24 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 25 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i256 %rd_0, void @empty_10, i32 0, i32 0, void @empty, i32 0, i32 0, void @empty_0, void @empty_1, void @empty, i32 16, i32 16, i32 16, i32 16, void @empty, void @empty"   --->   Operation 25 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 26 [1/2] (0.38ns)   --->   "%call_ln56 = call void @ingress, i512 %ingress_0_V_data_V, i64 %ingress_0_V_keep_V, i64 %ingress_0_V_strb_V, i1 %ingress_0_V_last_V, i1 %ingress_0_V_dest_V, i256 %rd_0, i64 %rd_01_read, i1 %first_read, i512 %block_header_read" [hash_controller/hash_controller.cpp:56]   --->   Operation 26 'call' 'call_ln56' <Predicate = true> <Delay = 0.38> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_2 : Operation 27 [1/2] (0.38ns)   --->   "%call_ln57 = call void @ingress.1, i512 %ingress_1_V_data_V, i64 %ingress_1_V_keep_V, i64 %ingress_1_V_strb_V, i1 %ingress_1_V_last_V, i1 %ingress_1_V_dest_V, i256 %rd_1, i64 %rd_12_read, i1 %first_read, i512 %block_header_read" [hash_controller/hash_controller.cpp:57]   --->   Operation 27 'call' 'call_ln57' <Predicate = true> <Delay = 0.38> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_2 : Operation 28 [1/2] (0.00ns)   --->   "%call_ln58 = call void @egress, i256 %wr_0, i64 %wr_03_read, i512 %egress_0_V_data_V, i64 %egress_0_V_keep_V, i64 %egress_0_V_strb_V, i1 %egress_0_V_last_V, i1 %egress_0_V_dest_V, i1 %last_read, i512 %target_read, i32 %golden_fifo_0" [hash_controller/hash_controller.cpp:58]   --->   Operation 28 'call' 'call_ln58' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_2 : Operation 29 [1/2] (0.00ns)   --->   "%call_ln59 = call void @egress.1, i256 %wr_1, i64 %wr_14_read, i512 %egress_1_V_data_V, i64 %egress_1_V_keep_V, i64 %egress_1_V_strb_V, i1 %egress_1_V_last_V, i1 %egress_1_V_dest_V, i1 %last_read, i512 %target_read, i32 %golden_fifo_1" [hash_controller/hash_controller.cpp:59]   --->   Operation 29 'call' 'call_ln59' <Predicate = true> <Delay = 0.00> <CoreType = "Generic">   --->   Core 0 '' <Latency = 0> <II = 1> <Delay = 1.00> <Generic> <Opcode : >
+ST_2 : Operation 30 [1/1] (0.00ns)   --->   "%ret_ln60 = ret" [hash_controller/hash_controller.cpp:60]   --->   Operation 30 'ret' 'ret_ln60' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 2.22ns, clock uncertainty: 0.599ns.
+
+ <State 1>: 1.33ns
+The critical path consists of the following:
+	wire read operation ('target_read', hash_controller/hash_controller.cpp:56) on port 'target' (hash_controller/hash_controller.cpp:56) [46]  (0 ns)
+	'call' operation ('call_ln58', hash_controller/hash_controller.cpp:58) to 'egress' [56]  (1.33 ns)
+
+ <State 2>: 0.387ns
+The critical path consists of the following:
+	'call' operation ('call_ln56', hash_controller/hash_controller.cpp:56) to 'ingress' [54]  (0.387 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

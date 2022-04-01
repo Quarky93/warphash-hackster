@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
+  <errorLogs>
+    <logs>
+      <synLog/>
+      <packageLog>
+        <logs message="ERROR: [IMPL 213-28] Failed to generate IP." projectName="hash_controller" solutionName="solution1" date="2022-04-01T01:11:54.513+1100"/>
+        <logs message="ERROR: '2204010111' is an invalid argument. Please specify an integer value.&#xA;    while executing&#xA;&quot;rdi::set_property core_revision 2204010111 {component component_1}&quot;&#xA;    invoked from within&#xA;&quot;set_property core_revision $Revision $core&quot;&#xA;    (file &quot;run_ippack.tcl&quot; line 2098)" projectName="hash_controller" solutionName="solution1" date="2022-04-01T01:11:44.421+1100"/>
+      </packageLog>
+    </logs>
+  </errorLogs>
+  <warningLogs>
+    <logs>
+      <synLog>
+        <logs message="WARNING: [RTGEN 206-101] Design contains AXI ports. Reset is fixed to synchronous and active low." projectName="hash_controller" solutionName="solution1" date="2022-04-01T01:11:28.858+1100" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_wr_1_RREADY' to 0." projectName="hash_controller" solutionName="solution1" date="2022-04-01T01:11:28.854+1100" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_wr_1_ARUSER' to 0." projectName="hash_controller" solutionName="solution1" date="2022-04-01T01:11:28.850+1100" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_wr_1_ARREGION' to 0." projectName="hash_controller" solutionName="solution1" date="2022-04-01T01:11:28.848+1100" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_wr_1_ARQOS' to 0." projectName="hash_controller" solutionName="solution1" date="2022-04-01T01:11:28.846+1100" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_wr_1_ARPROT' to 0." projectName="hash_controller" solutionName="solution1" date="2022-04-01T01:11:28.840+1100" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_wr_1_ARCACHE' to 0." projectName="hash_controller" solutionName="solution1" date="2022-04-01T01:11:28.837+1100" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_wr_1_ARLOCK' to 0." projectName="hash_controller" solutionName="solution1" date="2022-04-01T01:11:28.833+1100" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_wr_1_ARBURST' to 0." projectName="hash_controller" solutionName="solution1" date="2022-04-01T01:11:28.827+1100" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_wr_1_ARSIZE' to 0." projectName="hash_controller" solutionName="solution1" date="2022-04-01T01:11:28.825+1100" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_wr_1_ARLEN' to 0." projectName="hash_controller" solutionName="solution1" date="2022-04-01T01:11:28.820+1100" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_wr_1_ARID' to 0." projectName="hash_controller" solutionName="solution1" date="2022-04-01T01:11:28.818+1100" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_wr_1_ARADDR' to 0." projectName="hash_controller" solutionName="solution1" date="2022-04-01T01:11:28.816+1100" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_wr_1_ARVALID' to 0." projectName="hash_controller" solutionName="solution1" date="2022-04-01T01:11:28.811+1100" type="Warning"/>
+        <logs message="WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_wr_0_RREADY' to 0." projectName="hash_controller" solutionName="solution1" date="2022-04-01T01:11:28.809+1100" type="Warning"/>
+      </synLog>
+      <packageLog/>
+    </logs>
+  </warningLogs>
+</vivadoHLSLog:LogRoot>

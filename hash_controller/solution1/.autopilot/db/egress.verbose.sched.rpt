@@ -1,0 +1,227 @@
+
+
+================================================================
+== Vitis HLS Report for 'egress'
+================================================================
+* Date:           Fri Apr  1 01:11:28 2022
+
+* Version:        2021.2 (Build 3367213 on Tue Oct 19 02:47:39 MDT 2021)
+* Project:        hash_controller
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: virtexuplus
+* Target device:  xcvu35p-fsvh2892-2L-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+---------+----------+------------+
+    |  Clock |  Target | Estimated| Uncertainty|
+    +--------+---------+----------+------------+
+    |ap_clk  |  2.22 ns|  1.621 ns|     0.60 ns|
+    +--------+---------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +----------+----------+-----------+-----------+----------+----------+---------+
+    |   Latency (cycles)  |   Latency (absolute)  |       Interval      | Pipeline|
+    |    min   |    max   |    min    |    max    |    min   |    max   |   Type  |
+    +----------+----------+-----------+-----------+----------+----------+---------+
+    |  67108872|  67108872|  0.149 sec|  0.149 sec|  67108872|  67108872|       no|
+    +----------+----------+-----------+-----------+----------+----------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +-------------------+----------+----------+----------+-----------+-----------+----------+----------+
+        |                   |   Latency (cycles)  | Iteration|  Initiation Interval  |   Trip   |          |
+        |     Loop Name     |    min   |    max   |  Latency |  achieved |   target  |   Count  | Pipelined|
+        +-------------------+----------+----------+----------+-----------+-----------+----------+----------+
+        |- VITIS_LOOP_29_1  |  67108870|  67108870|         9|          2|          2|  33554432|       yes|
+        +-------------------+----------+----------+----------+-----------+-----------+----------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 2
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 2, depth = 9
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 9
+* Pipeline : 1
+  Pipeline-0 : II = 2, D = 9, States = { 1 2 3 4 5 6 7 8 9 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 5 
+5 --> 6 
+6 --> 7 
+7 --> 8 
+8 --> 9 
+9 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 1.23>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%i = alloca i32 1"   --->   Operation 12 'alloca' 'i' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i256 %wr_0, void @empty_10, i32 0, i32 0, void @empty, i32 0, i32 0, void @empty_3, void @empty_1, void @empty, i32 16, i32 16, i32 16, i32 16, void @empty, void @empty"   --->   Operation 13 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i512 %egress_0_V_data_V, i64 %egress_0_V_keep_V, i64 %egress_0_V_strb_V, i1 %egress_0_V_last_V, i1 %egress_0_V_dest_V, void @empty_12, i32 0, i32 0, void @empty_13, i32 0, i32 0, void @empty, void @empty, void @empty, i32 0, i32 0, i32 0, i32 0, void @empty, void @empty"   --->   Operation 14 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %golden_fifo_0, void @empty_12, i32 0, i32 0, void @empty_13, i32 0, i32 0, void @empty, void @empty, void @empty, i32 0, i32 0, i32 0, i32 0, void @empty, void @empty"   --->   Operation 15 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%target_read = read i512 @_ssdm_op_Read.ap_auto.i512, i512 %target"   --->   Operation 16 'read' 'target_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%last_read = read i1 @_ssdm_op_Read.ap_auto.i1, i1 %last"   --->   Operation 17 'read' 'last_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%gmem_read = read i64 @_ssdm_op_Read.ap_auto.i64, i64 %gmem"   --->   Operation 18 'read' 'gmem_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 19 [1/1] (0.38ns)   --->   "%store_ln29 = store i26 0, i26 %i" [hash_controller/hash_controller.cpp:29]   --->   Operation 19 'store' 'store_ln29' <Predicate = true> <Delay = 0.38>
+ST_1 : Operation 20 [1/1] (0.00ns)   --->   "%br_ln29 = br void" [hash_controller/hash_controller.cpp:29]   --->   Operation 20 'br' 'br_ln29' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 21 [1/1] (0.00ns)   --->   "%i_4 = load i26 %i"   --->   Operation 21 'load' 'i_4' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 22 [1/1] (0.79ns)   --->   "%icmp_ln29 = icmp_eq  i26 %i_4, i26 33554432" [hash_controller/hash_controller.cpp:29]   --->   Operation 22 'icmp' 'icmp_ln29' <Predicate = true> <Delay = 0.79> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 1.32> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 23 [1/1] (0.00ns)   --->   "%empty = speclooptripcount i32 @_ssdm_op_SpecLoopTripCount, i64 33554432, i64 33554432, i64 33554432"   --->   Operation 23 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 24 [1/1] (0.84ns)   --->   "%add_ln29 = add i26 %i_4, i26 1" [hash_controller/hash_controller.cpp:29]   --->   Operation 24 'add' 'add_ln29' <Predicate = true> <Delay = 0.84> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.14> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 25 [1/1] (0.00ns)   --->   "%br_ln29 = br i1 %icmp_ln29, void %.split, void" [hash_controller/hash_controller.cpp:29]   --->   Operation 25 'br' 'br_ln29' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 26 [1/1] (0.00ns)   --->   "%trunc_ln293 = trunc i26 %i_4"   --->   Operation 26 'trunc' 'trunc_ln293' <Predicate = (!icmp_ln29)> <Delay = 0.00>
+ST_1 : Operation 27 [1/1] (0.00ns)   --->   "%shl_ln = bitconcatenate i31 @_ssdm_op_BitConcatenate.i31.i25.i6, i25 %trunc_ln293, i6 0"   --->   Operation 27 'bitconcatenate' 'shl_ln' <Predicate = (!icmp_ln29)> <Delay = 0.00>
+ST_1 : Operation 28 [1/1] (0.00ns)   --->   "%zext_ln293 = zext i31 %shl_ln"   --->   Operation 28 'zext' 'zext_ln293' <Predicate = (!icmp_ln29)> <Delay = 0.00>
+ST_1 : Operation 29 [1/1] (1.14ns)   --->   "%add_ln293 = add i64 %zext_ln293, i64 %gmem_read"   --->   Operation 29 'add' 'add_ln293' <Predicate = (!icmp_ln29)> <Delay = 1.14> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 1.14> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 30 [1/1] (0.00ns)   --->   "%br_ln32 = br i1 %last_read, void, void" [hash_controller/hash_controller.cpp:32]   --->   Operation 30 'br' 'br_ln32' <Predicate = (!icmp_ln29)> <Delay = 0.00>
+ST_1 : Operation 31 [1/1] (0.00ns)   --->   "%trunc_ln = partselect i59 @_ssdm_op_PartSelect.i59.i64.i32.i32, i64 %add_ln293, i32 5, i32 63" [hash_controller/hash_controller.cpp:35]   --->   Operation 31 'partselect' 'trunc_ln' <Predicate = (!icmp_ln29 & !last_read)> <Delay = 0.00>
+ST_1 : Operation 32 [1/1] (0.00ns)   --->   "%br_ln0 = br void"   --->   Operation 32 'br' 'br_ln0' <Predicate = (!icmp_ln29 & last_read)> <Delay = 0.00>
+ST_1 : Operation 33 [1/1] (0.38ns)   --->   "%store_ln29 = store i26 %add_ln29, i26 %i" [hash_controller/hash_controller.cpp:29]   --->   Operation 33 'store' 'store_ln29' <Predicate = (!icmp_ln29)> <Delay = 0.38>
+ST_1 : Operation 34 [1/1] (0.00ns)   --->   "%br_ln0 = br void"   --->   Operation 34 'br' 'br_ln0' <Predicate = (!icmp_ln29)> <Delay = 0.00>
+
+State 2 <SV = 1> <Delay = 1.62>
+ST_2 : Operation 35 [1/1] (0.00ns)   --->   "%specpipeline_ln31 = specpipeline void @_ssdm_op_SpecPipeline, i32 2, i32 0, i32 0, i32 0, void @empty" [hash_controller/hash_controller.cpp:31]   --->   Operation 35 'specpipeline' 'specpipeline_ln31' <Predicate = (!icmp_ln29)> <Delay = 0.00>
+ST_2 : Operation 36 [1/1] (0.00ns)   --->   "%specloopname_ln31 = specloopname void @_ssdm_op_SpecLoopName, void @empty_20" [hash_controller/hash_controller.cpp:31]   --->   Operation 36 'specloopname' 'specloopname_ln31' <Predicate = (!icmp_ln29)> <Delay = 0.00>
+ST_2 : Operation 37 [1/1] (0.00ns)   --->   "%empty_36 = read i642 @_ssdm_op_Read.axis.volatile.i512P0A.i64P0A.i64P0A.i1P0A.i1P0A, i512 %egress_0_V_data_V, i64 %egress_0_V_keep_V, i64 %egress_0_V_strb_V, i1 %egress_0_V_last_V, i1 %egress_0_V_dest_V"   --->   Operation 37 'read' 'empty_36' <Predicate = (!icmp_ln29)> <Delay = 0.00> <CoreInst = "axis">   --->   Core 123 'axis' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_2 : Operation 38 [1/1] (0.00ns)   --->   "%tmp_data_V = extractvalue i642 %empty_36"   --->   Operation 38 'extractvalue' 'tmp_data_V' <Predicate = (!icmp_ln29)> <Delay = 0.00>
+ST_2 : Operation 39 [1/1] (0.00ns)   --->   "%sext_ln35 = sext i59 %trunc_ln" [hash_controller/hash_controller.cpp:35]   --->   Operation 39 'sext' 'sext_ln35' <Predicate = (!icmp_ln29 & !last_read)> <Delay = 0.00>
+ST_2 : Operation 40 [1/1] (0.00ns)   --->   "%wr_0_addr = getelementptr i256 %wr_0, i64 %sext_ln35" [hash_controller/hash_controller.cpp:35]   --->   Operation 40 'getelementptr' 'wr_0_addr' <Predicate = (!icmp_ln29 & !last_read)> <Delay = 0.00>
+ST_2 : Operation 41 [1/1] (1.62ns)   --->   "%empty_37 = writereq i1 @_ssdm_op_WriteReq.m_axi.p1i256, i256 %wr_0_addr, i32 2" [hash_controller/hash_controller.cpp:35]   --->   Operation 41 'writereq' 'empty_37' <Predicate = (!icmp_ln29 & !last_read)> <Delay = 1.62> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_2 : Operation 42 [1/1] (1.32ns)   --->   "%icmp_ln1072 = icmp_ult  i512 %tmp_data_V, i512 %target_read"   --->   Operation 42 'icmp' 'icmp_ln1072' <Predicate = (!icmp_ln29 & last_read)> <Delay = 1.32> <CoreInst = "Cmp">   --->   Core 9 'Cmp' <Latency = 0> <II = 1> <Delay = 1.32> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 43 [1/1] (0.00ns)   --->   "%br_ln35 = br i1 %icmp_ln1072, void %._crit_edge, void" [hash_controller/hash_controller.cpp:35]   --->   Operation 43 'br' 'br_ln35' <Predicate = (!icmp_ln29 & last_read)> <Delay = 0.00>
+
+State 3 <SV = 2> <Delay = 1.62>
+ST_3 : Operation 44 [1/1] (0.00ns)   --->   "%trunc_ln674 = trunc i512 %tmp_data_V"   --->   Operation 44 'trunc' 'trunc_ln674' <Predicate = (!last_read)> <Delay = 0.00>
+ST_3 : Operation 45 [1/1] (0.00ns)   --->   "%p_Result_s = partselect i256 @_ssdm_op_PartSelect.i256.i512.i32.i32, i512 %tmp_data_V, i32 256, i32 511"   --->   Operation 45 'partselect' 'p_Result_s' <Predicate = (!last_read)> <Delay = 0.00>
+ST_3 : Operation 46 [1/1] (1.62ns)   --->   "%write_ln35 = write void @_ssdm_op_Write.m_axi.p1i256, i256 %wr_0_addr, i256 %trunc_ln674, i32 4294967295" [hash_controller/hash_controller.cpp:35]   --->   Operation 46 'write' 'write_ln35' <Predicate = (!last_read)> <Delay = 1.62> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 4 <SV = 3> <Delay = 1.62>
+ST_4 : Operation 47 [1/1] (1.62ns)   --->   "%write_ln35 = write void @_ssdm_op_Write.m_axi.p1i256, i256 %wr_0_addr, i256 %p_Result_s, i32 4294967295" [hash_controller/hash_controller.cpp:35]   --->   Operation 47 'write' 'write_ln35' <Predicate = (!last_read)> <Delay = 1.62> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 5> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 5 <SV = 4> <Delay = 1.62>
+ST_5 : Operation 48 [5/5] (1.62ns)   --->   "%empty_38 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i256, i256 %wr_0_addr" [hash_controller/hash_controller.cpp:35]   --->   Operation 48 'writeresp' 'empty_38' <Predicate = (!last_read)> <Delay = 1.62> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 6 <SV = 5> <Delay = 1.62>
+ST_6 : Operation 49 [4/5] (1.62ns)   --->   "%empty_38 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i256, i256 %wr_0_addr" [hash_controller/hash_controller.cpp:35]   --->   Operation 49 'writeresp' 'empty_38' <Predicate = (!last_read)> <Delay = 1.62> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 7 <SV = 6> <Delay = 1.62>
+ST_7 : Operation 50 [3/5] (1.62ns)   --->   "%empty_38 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i256, i256 %wr_0_addr" [hash_controller/hash_controller.cpp:35]   --->   Operation 50 'writeresp' 'empty_38' <Predicate = (!last_read)> <Delay = 1.62> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_7 : Operation 57 [1/1] (0.00ns)   --->   "%ret_ln39 = ret" [hash_controller/hash_controller.cpp:39]   --->   Operation 57 'ret' 'ret_ln39' <Predicate = (icmp_ln29)> <Delay = 0.00>
+
+State 8 <SV = 7> <Delay = 1.62>
+ST_8 : Operation 51 [2/5] (1.62ns)   --->   "%empty_38 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i256, i256 %wr_0_addr" [hash_controller/hash_controller.cpp:35]   --->   Operation 51 'writeresp' 'empty_38' <Predicate = (!last_read)> <Delay = 1.62> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_8 : Operation 52 [1/1] (0.00ns)   --->   "%zext_ln173 = zext i25 %trunc_ln293" [/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:173]   --->   Operation 52 'zext' 'zext_ln173' <Predicate = (last_read & icmp_ln1072)> <Delay = 0.00>
+ST_8 : Operation 53 [1/1] (0.00ns)   --->   "%write_ln173 = write void @_ssdm_op_Write.axis.volatile.i32P128A, i32 %golden_fifo_0, i32 %zext_ln173" [/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:173]   --->   Operation 53 'write' 'write_ln173' <Predicate = (last_read & icmp_ln1072)> <Delay = 0.00> <CoreInst = "axis">   --->   Core 123 'axis' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_8 : Operation 54 [1/1] (0.00ns)   --->   "%br_ln37 = br void %._crit_edge" [hash_controller/hash_controller.cpp:37]   --->   Operation 54 'br' 'br_ln37' <Predicate = (last_read & icmp_ln1072)> <Delay = 0.00>
+
+State 9 <SV = 8> <Delay = 1.62>
+ST_9 : Operation 55 [1/5] (1.62ns)   --->   "%empty_38 = writeresp i1 @_ssdm_op_WriteResp.m_axi.p1i256, i256 %wr_0_addr" [hash_controller/hash_controller.cpp:35]   --->   Operation 55 'writeresp' 'empty_38' <Predicate = (!last_read)> <Delay = 1.62> <CoreInst = "m_axi">   --->   Core 121 'm_axi' <Latency = 3> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_9 : Operation 56 [1/1] (0.00ns)   --->   "%br_ln35 = br void" [hash_controller/hash_controller.cpp:35]   --->   Operation 56 'br' 'br_ln35' <Predicate = (!last_read)> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 2.22ns, clock uncertainty: 0.599ns.
+
+ <State 1>: 1.23ns
+The critical path consists of the following:
+	'alloca' operation ('i') [11]  (0 ns)
+	'load' operation ('i') on local variable 'i' [21]  (0 ns)
+	'add' operation ('add_ln29', hash_controller/hash_controller.cpp:29) [24]  (0.844 ns)
+	'store' operation ('store_ln29', hash_controller/hash_controller.cpp:29) of variable 'add_ln29', hash_controller/hash_controller.cpp:29 on local variable 'i' [57]  (0.387 ns)
+
+ <State 2>: 1.62ns
+The critical path consists of the following:
+	'getelementptr' operation ('wr_0_addr', hash_controller/hash_controller.cpp:35) [41]  (0 ns)
+	bus request operation ('empty_37', hash_controller/hash_controller.cpp:35) on port 'wr_0' (hash_controller/hash_controller.cpp:35) [42]  (1.62 ns)
+
+ <State 3>: 1.62ns
+The critical path consists of the following:
+	bus write operation ('write_ln35', hash_controller/hash_controller.cpp:35) on port 'wr_0' (hash_controller/hash_controller.cpp:35) [43]  (1.62 ns)
+
+ <State 4>: 1.62ns
+The critical path consists of the following:
+	bus write operation ('write_ln35', hash_controller/hash_controller.cpp:35) on port 'wr_0' (hash_controller/hash_controller.cpp:35) [44]  (1.62 ns)
+
+ <State 5>: 1.62ns
+The critical path consists of the following:
+	bus response operation ('empty_38', hash_controller/hash_controller.cpp:35) on port 'wr_0' (hash_controller/hash_controller.cpp:35) [45]  (1.62 ns)
+
+ <State 6>: 1.62ns
+The critical path consists of the following:
+	bus response operation ('empty_38', hash_controller/hash_controller.cpp:35) on port 'wr_0' (hash_controller/hash_controller.cpp:35) [45]  (1.62 ns)
+
+ <State 7>: 1.62ns
+The critical path consists of the following:
+	bus response operation ('empty_38', hash_controller/hash_controller.cpp:35) on port 'wr_0' (hash_controller/hash_controller.cpp:35) [45]  (1.62 ns)
+
+ <State 8>: 1.62ns
+The critical path consists of the following:
+	bus response operation ('empty_38', hash_controller/hash_controller.cpp:35) on port 'wr_0' (hash_controller/hash_controller.cpp:35) [45]  (1.62 ns)
+
+ <State 9>: 1.62ns
+The critical path consists of the following:
+	bus response operation ('empty_38', hash_controller/hash_controller.cpp:35) on port 'wr_0' (hash_controller/hash_controller.cpp:35) [45]  (1.62 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

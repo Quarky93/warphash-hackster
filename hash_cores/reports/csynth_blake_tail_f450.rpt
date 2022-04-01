@@ -1,0 +1,905 @@
+
+
+================================================================
+== Synthesis Summary Report of 'blake_tail'
+================================================================
++ General Information: 
+    * Date:           Fri Apr  1 03:26:46 2022
+    * Version:        2021.2 (Build 3367213 on Tue Oct 19 02:47:39 MDT 2021)
+    * Project:        blake_tail
+    * Solution:       blake_tail_f450 (Vivado IP Flow Target)
+    * Product family: virtexuplus
+    * Target device:  xcvu33p-fsvh2104-2-e
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +--------------------+------+------+---------+---------+----------+---------+------+----------+------+----+--------------+--------------+-----+
+    |       Modules      | Issue|      | Latency | Latency | Iteration|         | Trip |          |      |    |              |              |     |
+    |       & Loops      | Type | Slack| (cycles)|   (ns)  |  Latency | Interval| Count| Pipelined| BRAM | DSP|      FF      |      LUT     | URAM|
+    +--------------------+------+------+---------+---------+----------+---------+------+----------+------+----+--------------+--------------+-----+
+    |+ blake_tail        |     -|  0.19|      145|  322.190|         -|        1|     -|       yes|     -|   -|  211521 (24%)|  108874 (24%)|    -|
+    | + blake            |     -|  0.19|      144|  319.968|         -|        1|     -|       yes|     -|   -|  210945 (23%)|  108842 (24%)|    -|
+    |  + blake_round_15  |     -|  0.19|        7|   15.554|         -|        1|     -|       yes|     -|   -|     9216 (1%)|     6540 (1%)|    -|
+    |  + blake_round_14  |     -|  0.19|        7|   15.554|         -|        1|     -|       yes|     -|   -|    11264 (1%)|     6768 (1%)|    -|
+    |  + blake_round_13  |     -|  0.19|        7|   15.554|         -|        1|     -|       yes|     -|   -|    11264 (1%)|     6768 (1%)|    -|
+    |  + blake_round_12  |     -|  0.19|        7|   15.554|         -|        1|     -|       yes|     -|   -|    11264 (1%)|     6768 (1%)|    -|
+    |  + blake_round_11  |     -|  0.19|        7|   15.554|         -|        1|     -|       yes|     -|   -|    11264 (1%)|     6768 (1%)|    -|
+    |  + blake_round_10  |     -|  0.19|        7|   15.554|         -|        1|     -|       yes|     -|   -|    11264 (1%)|     6768 (1%)|    -|
+    |  + blake_round_9   |     -|  0.19|        7|   15.554|         -|        1|     -|       yes|     -|   -|    11264 (1%)|     6768 (1%)|    -|
+    |  + blake_round_8   |     -|  0.19|        7|   15.554|         -|        1|     -|       yes|     -|   -|    11264 (1%)|     6768 (1%)|    -|
+    |  + blake_round_7   |     -|  0.19|        7|   15.554|         -|        1|     -|       yes|     -|   -|    11264 (1%)|     6768 (1%)|    -|
+    |  + blake_round_6   |     -|  0.19|        7|   15.554|         -|        1|     -|       yes|     -|   -|    11264 (1%)|     6768 (1%)|    -|
+    |  + blake_round_5   |     -|  0.19|        7|   15.554|         -|        1|     -|       yes|     -|   -|    11264 (1%)|     6768 (1%)|    -|
+    |  + blake_round_4   |     -|  0.19|        7|   15.554|         -|        1|     -|       yes|     -|   -|    11264 (1%)|     6768 (1%)|    -|
+    |  + blake_round_3   |     -|  0.19|        7|   15.554|         -|        1|     -|       yes|     -|   -|    11264 (1%)|     6768 (1%)|    -|
+    |  + blake_round_2   |     -|  0.19|        7|   15.554|         -|        1|     -|       yes|     -|   -|    11264 (1%)|     6768 (1%)|    -|
+    |  + blake_round_1   |     -|  0.19|        7|   15.554|         -|        1|     -|       yes|     -|   -|    11264 (1%)|     6768 (1%)|    -|
+    |  + blake_round_0   |     -|  0.19|        7|   15.554|         -|        1|     -|       yes|     -|   -|    10752 (1%)|     6512 (1%)|    -|
+    +--------------------+------+------+---------+---------+----------+---------+------+----------+------+----+--------------+--------------+-----+
+
+
+================================================================
+== HW Interfaces
+================================================================
+* REGISTER
++-----------+---------+----------+
+| Interface | Mode    | Bitwidth |
++-----------+---------+----------+
+| ap_return |         | 1024     |
+| msg       | ap_none | 1024     |
++-----------+---------+----------+
+
+* TOP LEVEL CONTROL
++-----------+--------------+--------+
+| Interface | Type         | Ports  |
++-----------+--------------+--------+
+| ap_clk    | clock        | ap_clk |
+| ap_ctrl   | ap_ctrl_none |        |
++-----------+--------------+--------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++----------+-----------+------------+
+| Argument | Direction | Datatype   |
++----------+-----------+------------+
+| msg      | in        | hash_pkt_t |
+| return   | out       | hash_pkt_t |
++----------+-----------+------------+
+
+* SW-to-HW Mapping
++----------+--------------+---------+
+| Argument | HW Interface | HW Type |
++----------+--------------+---------+
+| msg      | msg          | port    |
+| return   | ap_return    | port    |
++----------+--------------+---------+
+
+
+================================================================
+== Bind Op Report
+================================================================
++------------------------------+-----+--------+---------------+-----+--------+---------+
+| Name                         | DSP | Pragma | Variable      | Op  | Impl   | Latency |
++------------------------------+-----+--------+---------------+-----+--------+---------+
+| + blake_tail                 | 0   |        |               |     |        |         |
+|  + blake                     | 0   |        |               |     |        |         |
+|   + blake_round_15           | 0   |        |               |     |        |         |
+|     a_V_fu_320_p2            | -   |        | a_V           | add | fabric | 0       |
+|     c_V_fu_389_p2            | -   |        | c_V           | add | fabric | 0       |
+|     add_ln223_fu_526_p2      | -   |        | add_ln223     | add | tadder | 0       |
+|     a_V_260_fu_532_p2        | -   |        | a_V_260       | add | tadder | 0       |
+|     c_V_260_fu_692_p2        | -   |        | c_V_260       | add | fabric | 0       |
+|     a_V_261_fu_332_p2        | -   |        | a_V_261       | add | fabric | 0       |
+|     c_V_261_fu_422_p2        | -   |        | c_V_261       | add | fabric | 0       |
+|     add_ln223_381_fu_569_p2  | -   |        | add_ln223_381 | add | tadder | 0       |
+|     a_V_262_fu_575_p2        | -   |        | a_V_262       | add | tadder | 0       |
+|     c_V_262_fu_723_p2        | -   |        | c_V_262       | add | fabric | 0       |
+|     a_V_263_fu_344_p2        | -   |        | a_V_263       | add | fabric | 0       |
+|     c_V_263_fu_455_p2        | -   |        | c_V_263       | add | fabric | 0       |
+|     add_ln223_386_fu_612_p2  | -   |        | add_ln223_386 | add | tadder | 0       |
+|     a_V_264_fu_618_p2        | -   |        | a_V_264       | add | tadder | 0       |
+|     c_V_264_fu_754_p2        | -   |        | c_V_264       | add | fabric | 0       |
+|     a_V_265_fu_356_p2        | -   |        | a_V_265       | add | fabric | 0       |
+|     c_V_265_fu_488_p2        | -   |        | c_V_265       | add | fabric | 0       |
+|     add_ln223_391_fu_655_p2  | -   |        | add_ln223_391 | add | tadder | 0       |
+|     a_V_266_fu_661_p2        | -   |        | a_V_266       | add | tadder | 0       |
+|     c_V_266_fu_785_p2        | -   |        | c_V_266       | add | fabric | 0       |
+|     add_ln223_394_fu_899_p2  | -   |        | add_ln223_394 | add | tadder | 0       |
+|     a_V_267_fu_905_p2        | -   |        | a_V_267       | add | tadder | 0       |
+|     c_V_267_fu_984_p2        | -   |        | c_V_267       | add | fabric | 0       |
+|     add_ln223_397_fu_1113_p2 | -   |        | add_ln223_397 | add | tadder | 0       |
+|     a_V_268_fu_1119_p2       | -   |        | a_V_268       | add | tadder | 0       |
+|     c_V_268_fu_1332_p2       | -   |        | c_V_268       | add | fabric | 0       |
+|     add_ln223_400_fu_915_p2  | -   |        | add_ln223_400 | add | tadder | 0       |
+|     a_V_269_fu_921_p2        | -   |        | a_V_269       | add | tadder | 0       |
+|     c_V_269_fu_1015_p2       | -   |        | c_V_269       | add | fabric | 0       |
+|     add_ln223_403_fu_1174_p2 | -   |        | add_ln223_403 | add | tadder | 0       |
+|     a_V_270_fu_1180_p2       | -   |        | a_V_270       | add | tadder | 0       |
+|     c_V_270_fu_1370_p2       | -   |        | c_V_270       | add | fabric | 0       |
+|     add_ln223_406_fu_931_p2  | -   |        | add_ln223_406 | add | tadder | 0       |
+|     a_V_271_fu_937_p2        | -   |        | a_V_271       | add | tadder | 0       |
+|     c_V_271_fu_1046_p2       | -   |        | c_V_271       | add | fabric | 0       |
+|     add_ln223_409_fu_1235_p2 | -   |        | add_ln223_409 | add | tadder | 0       |
+|     a_V_272_fu_1241_p2       | -   |        | a_V_272       | add | tadder | 0       |
+|     c_V_272_fu_1408_p2       | -   |        | c_V_272       | add | fabric | 0       |
+|     add_ln223_412_fu_947_p2  | -   |        | add_ln223_412 | add | tadder | 0       |
+|     a_V_273_fu_953_p2        | -   |        | a_V_273       | add | tadder | 0       |
+|     c_V_273_fu_1077_p2       | -   |        | c_V_273       | add | fabric | 0       |
+|     add_ln223_415_fu_1296_p2 | -   |        | add_ln223_415 | add | tadder | 0       |
+|     a_V_274_fu_1302_p2       | -   |        | a_V_274       | add | tadder | 0       |
+|     c_V_274_fu_1446_p2       | -   |        | c_V_274       | add | fabric | 0       |
+|   + blake_round_14           | 0   |        |               |     |        |         |
+|     add_ln223_fu_342_p2      | -   |        | add_ln223     | add | tadder | 0       |
+|     a_V_291_fu_348_p2        | -   |        | a_V_291       | add | tadder | 0       |
+|     c_V_291_fu_554_p2        | -   |        | c_V_291       | add | fabric | 0       |
+|     add_ln223_420_fu_683_p2  | -   |        | add_ln223_420 | add | tadder | 0       |
+|     a_V_292_fu_689_p2        | -   |        | a_V_292       | add | tadder | 0       |
+|     c_V_292_fu_884_p2        | -   |        | c_V_292       | add | fabric | 0       |
+|     add_ln223_423_fu_400_p2  | -   |        | add_ln223_423 | add | tadder | 0       |
+|     a_V_293_fu_406_p2        | -   |        | a_V_293       | add | tadder | 0       |
+|     c_V_293_fu_585_p2        | -   |        | c_V_293       | add | fabric | 0       |
+|     add_ln223_426_fu_725_p2  | -   |        | add_ln223_426 | add | tadder | 0       |
+|     a_V_294_fu_731_p2        | -   |        | a_V_294       | add | tadder | 0       |
+|     c_V_294_fu_895_p2        | -   |        | c_V_294       | add | fabric | 0       |
+|     add_ln223_429_fu_458_p2  | -   |        | add_ln223_429 | add | tadder | 0       |
+|     a_V_295_fu_464_p2        | -   |        | a_V_295       | add | tadder | 0       |
+|     c_V_295_fu_616_p2        | -   |        | c_V_295       | add | fabric | 0       |
+|     add_ln223_432_fu_786_p2  | -   |        | add_ln223_432 | add | tadder | 0       |
+|     a_V_296_fu_792_p2        | -   |        | a_V_296       | add | tadder | 0       |
+|     c_V_296_fu_926_p2        | -   |        | c_V_296       | add | fabric | 0       |
+|     add_ln223_435_fu_516_p2  | -   |        | add_ln223_435 | add | tadder | 0       |
+|     a_V_297_fu_522_p2        | -   |        | a_V_297       | add | tadder | 0       |
+|     c_V_297_fu_647_p2        | -   |        | c_V_297       | add | fabric | 0       |
+|     add_ln223_438_fu_828_p2  | -   |        | add_ln223_438 | add | tadder | 0       |
+|     a_V_298_fu_834_p2        | -   |        | a_V_298       | add | tadder | 0       |
+|     c_V_298_fu_937_p2        | -   |        | c_V_298       | add | fabric | 0       |
+|     add_ln223_441_fu_1051_p2 | -   |        | add_ln223_441 | add | tadder | 0       |
+|     a_V_299_fu_1057_p2       | -   |        | a_V_299       | add | tadder | 0       |
+|     c_V_299_fu_1136_p2       | -   |        | c_V_299       | add | fabric | 0       |
+|     add_ln223_444_fu_1265_p2 | -   |        | add_ln223_444 | add | tadder | 0       |
+|     a_V_300_fu_1271_p2       | -   |        | a_V_300       | add | tadder | 0       |
+|     c_V_300_fu_1484_p2       | -   |        | c_V_300       | add | fabric | 0       |
+|     add_ln223_447_fu_1067_p2 | -   |        | add_ln223_447 | add | tadder | 0       |
+|     a_V_301_fu_1073_p2       | -   |        | a_V_301       | add | tadder | 0       |
+|     c_V_301_fu_1167_p2       | -   |        | c_V_301       | add | fabric | 0       |
+|     add_ln223_450_fu_1326_p2 | -   |        | add_ln223_450 | add | tadder | 0       |
+|     a_V_302_fu_1332_p2       | -   |        | a_V_302       | add | tadder | 0       |
+|     c_V_302_fu_1522_p2       | -   |        | c_V_302       | add | fabric | 0       |
+|     add_ln223_453_fu_1083_p2 | -   |        | add_ln223_453 | add | tadder | 0       |
+|     a_V_303_fu_1089_p2       | -   |        | a_V_303       | add | tadder | 0       |
+|     c_V_303_fu_1198_p2       | -   |        | c_V_303       | add | fabric | 0       |
+|     add_ln223_456_fu_1387_p2 | -   |        | add_ln223_456 | add | tadder | 0       |
+|     a_V_304_fu_1393_p2       | -   |        | a_V_304       | add | tadder | 0       |
+|     c_V_304_fu_1560_p2       | -   |        | c_V_304       | add | fabric | 0       |
+|     add_ln223_459_fu_1099_p2 | -   |        | add_ln223_459 | add | tadder | 0       |
+|     a_V_305_fu_1105_p2       | -   |        | a_V_305       | add | tadder | 0       |
+|     c_V_305_fu_1229_p2       | -   |        | c_V_305       | add | fabric | 0       |
+|     add_ln223_462_fu_1448_p2 | -   |        | add_ln223_462 | add | tadder | 0       |
+|     a_V_306_fu_1454_p2       | -   |        | a_V_306       | add | tadder | 0       |
+|     c_V_306_fu_1598_p2       | -   |        | c_V_306       | add | fabric | 0       |
+|   + blake_round_13           | 0   |        |               |     |        |         |
+|     add_ln223_fu_342_p2      | -   |        | add_ln223     | add | tadder | 0       |
+|     a_V_323_fu_348_p2        | -   |        | a_V_323       | add | tadder | 0       |
+|     c_V_323_fu_554_p2        | -   |        | c_V_323       | add | fabric | 0       |
+|     add_ln223_467_fu_683_p2  | -   |        | add_ln223_467 | add | tadder | 0       |
+|     a_V_324_fu_689_p2        | -   |        | a_V_324       | add | tadder | 0       |
+|     c_V_324_fu_864_p2        | -   |        | c_V_324       | add | fabric | 0       |
+|     add_ln223_470_fu_400_p2  | -   |        | add_ln223_470 | add | tadder | 0       |
+|     a_V_325_fu_406_p2        | -   |        | a_V_325       | add | tadder | 0       |
+|     c_V_325_fu_585_p2        | -   |        | c_V_325       | add | fabric | 0       |
+|     add_ln223_473_fu_744_p2  | -   |        | add_ln223_473 | add | tadder | 0       |
+|     a_V_326_fu_750_p2        | -   |        | a_V_326       | add | tadder | 0       |
+|     c_V_326_fu_895_p2        | -   |        | c_V_326       | add | fabric | 0       |
+|     add_ln223_476_fu_458_p2  | -   |        | add_ln223_476 | add | tadder | 0       |
+|     a_V_327_fu_464_p2        | -   |        | a_V_327       | add | tadder | 0       |
+|     c_V_327_fu_616_p2        | -   |        | c_V_327       | add | fabric | 0       |
+|     add_ln223_479_fu_786_p2  | -   |        | add_ln223_479 | add | tadder | 0       |
+|     a_V_328_fu_792_p2        | -   |        | a_V_328       | add | tadder | 0       |
+|     c_V_328_fu_926_p2        | -   |        | c_V_328       | add | fabric | 0       |
+|     add_ln223_482_fu_516_p2  | -   |        | add_ln223_482 | add | tadder | 0       |
+|     a_V_329_fu_522_p2        | -   |        | a_V_329       | add | tadder | 0       |
+|     c_V_329_fu_647_p2        | -   |        | c_V_329       | add | fabric | 0       |
+|     add_ln223_485_fu_828_p2  | -   |        | add_ln223_485 | add | tadder | 0       |
+|     a_V_330_fu_834_p2        | -   |        | a_V_330       | add | tadder | 0       |
+|     c_V_330_fu_937_p2        | -   |        | c_V_330       | add | fabric | 0       |
+|     add_ln223_488_fu_1051_p2 | -   |        | add_ln223_488 | add | tadder | 0       |
+|     a_V_331_fu_1057_p2       | -   |        | a_V_331       | add | tadder | 0       |
+|     c_V_331_fu_1136_p2       | -   |        | c_V_331       | add | fabric | 0       |
+|     add_ln223_491_fu_1265_p2 | -   |        | add_ln223_491 | add | tadder | 0       |
+|     a_V_332_fu_1271_p2       | -   |        | a_V_332       | add | tadder | 0       |
+|     c_V_332_fu_1484_p2       | -   |        | c_V_332       | add | fabric | 0       |
+|     add_ln223_494_fu_1067_p2 | -   |        | add_ln223_494 | add | tadder | 0       |
+|     a_V_333_fu_1073_p2       | -   |        | a_V_333       | add | tadder | 0       |
+|     c_V_333_fu_1167_p2       | -   |        | c_V_333       | add | fabric | 0       |
+|     add_ln223_497_fu_1326_p2 | -   |        | add_ln223_497 | add | tadder | 0       |
+|     a_V_334_fu_1332_p2       | -   |        | a_V_334       | add | tadder | 0       |
+|     c_V_334_fu_1522_p2       | -   |        | c_V_334       | add | fabric | 0       |
+|     add_ln223_500_fu_1083_p2 | -   |        | add_ln223_500 | add | tadder | 0       |
+|     a_V_335_fu_1089_p2       | -   |        | a_V_335       | add | tadder | 0       |
+|     c_V_335_fu_1198_p2       | -   |        | c_V_335       | add | fabric | 0       |
+|     add_ln223_503_fu_1387_p2 | -   |        | add_ln223_503 | add | tadder | 0       |
+|     a_V_336_fu_1393_p2       | -   |        | a_V_336       | add | tadder | 0       |
+|     c_V_336_fu_1560_p2       | -   |        | c_V_336       | add | fabric | 0       |
+|     add_ln223_506_fu_1099_p2 | -   |        | add_ln223_506 | add | tadder | 0       |
+|     a_V_337_fu_1105_p2       | -   |        | a_V_337       | add | tadder | 0       |
+|     c_V_337_fu_1229_p2       | -   |        | c_V_337       | add | fabric | 0       |
+|     add_ln223_509_fu_1448_p2 | -   |        | add_ln223_509 | add | tadder | 0       |
+|     a_V_338_fu_1454_p2       | -   |        | a_V_338       | add | tadder | 0       |
+|     c_V_338_fu_1598_p2       | -   |        | c_V_338       | add | fabric | 0       |
+|   + blake_round_12           | 0   |        |               |     |        |         |
+|     add_ln223_fu_342_p2      | -   |        | add_ln223     | add | tadder | 0       |
+|     a_V_355_fu_348_p2        | -   |        | a_V_355       | add | tadder | 0       |
+|     c_V_355_fu_554_p2        | -   |        | c_V_355       | add | fabric | 0       |
+|     add_ln223_514_fu_683_p2  | -   |        | add_ln223_514 | add | tadder | 0       |
+|     a_V_356_fu_689_p2        | -   |        | a_V_356       | add | tadder | 0       |
+|     c_V_356_fu_864_p2        | -   |        | c_V_356       | add | fabric | 0       |
+|     add_ln223_517_fu_400_p2  | -   |        | add_ln223_517 | add | tadder | 0       |
+|     a_V_357_fu_406_p2        | -   |        | a_V_357       | add | tadder | 0       |
+|     c_V_357_fu_585_p2        | -   |        | c_V_357       | add | fabric | 0       |
+|     add_ln223_520_fu_744_p2  | -   |        | add_ln223_520 | add | tadder | 0       |
+|     a_V_358_fu_750_p2        | -   |        | a_V_358       | add | tadder | 0       |
+|     c_V_358_fu_895_p2        | -   |        | c_V_358       | add | fabric | 0       |
+|     add_ln223_523_fu_458_p2  | -   |        | add_ln223_523 | add | tadder | 0       |
+|     a_V_359_fu_464_p2        | -   |        | a_V_359       | add | tadder | 0       |
+|     c_V_359_fu_616_p2        | -   |        | c_V_359       | add | fabric | 0       |
+|     add_ln223_526_fu_786_p2  | -   |        | add_ln223_526 | add | tadder | 0       |
+|     a_V_360_fu_792_p2        | -   |        | a_V_360       | add | tadder | 0       |
+|     c_V_360_fu_926_p2        | -   |        | c_V_360       | add | fabric | 0       |
+|     add_ln223_529_fu_516_p2  | -   |        | add_ln223_529 | add | tadder | 0       |
+|     a_V_361_fu_522_p2        | -   |        | a_V_361       | add | tadder | 0       |
+|     c_V_361_fu_647_p2        | -   |        | c_V_361       | add | fabric | 0       |
+|     add_ln223_532_fu_828_p2  | -   |        | add_ln223_532 | add | tadder | 0       |
+|     a_V_362_fu_834_p2        | -   |        | a_V_362       | add | tadder | 0       |
+|     c_V_362_fu_937_p2        | -   |        | c_V_362       | add | fabric | 0       |
+|     add_ln223_535_fu_1051_p2 | -   |        | add_ln223_535 | add | tadder | 0       |
+|     a_V_363_fu_1057_p2       | -   |        | a_V_363       | add | tadder | 0       |
+|     c_V_363_fu_1136_p2       | -   |        | c_V_363       | add | fabric | 0       |
+|     add_ln223_538_fu_1265_p2 | -   |        | add_ln223_538 | add | tadder | 0       |
+|     a_V_364_fu_1271_p2       | -   |        | a_V_364       | add | tadder | 0       |
+|     c_V_364_fu_1484_p2       | -   |        | c_V_364       | add | fabric | 0       |
+|     add_ln223_541_fu_1067_p2 | -   |        | add_ln223_541 | add | tadder | 0       |
+|     a_V_365_fu_1073_p2       | -   |        | a_V_365       | add | tadder | 0       |
+|     c_V_365_fu_1167_p2       | -   |        | c_V_365       | add | fabric | 0       |
+|     add_ln223_544_fu_1326_p2 | -   |        | add_ln223_544 | add | tadder | 0       |
+|     a_V_366_fu_1332_p2       | -   |        | a_V_366       | add | tadder | 0       |
+|     c_V_366_fu_1522_p2       | -   |        | c_V_366       | add | fabric | 0       |
+|     add_ln223_547_fu_1083_p2 | -   |        | add_ln223_547 | add | tadder | 0       |
+|     a_V_367_fu_1089_p2       | -   |        | a_V_367       | add | tadder | 0       |
+|     c_V_367_fu_1198_p2       | -   |        | c_V_367       | add | fabric | 0       |
+|     add_ln223_550_fu_1387_p2 | -   |        | add_ln223_550 | add | tadder | 0       |
+|     a_V_368_fu_1393_p2       | -   |        | a_V_368       | add | tadder | 0       |
+|     c_V_368_fu_1560_p2       | -   |        | c_V_368       | add | fabric | 0       |
+|     add_ln223_553_fu_1099_p2 | -   |        | add_ln223_553 | add | tadder | 0       |
+|     a_V_369_fu_1105_p2       | -   |        | a_V_369       | add | tadder | 0       |
+|     c_V_369_fu_1229_p2       | -   |        | c_V_369       | add | fabric | 0       |
+|     add_ln223_556_fu_1448_p2 | -   |        | add_ln223_556 | add | tadder | 0       |
+|     a_V_370_fu_1454_p2       | -   |        | a_V_370       | add | tadder | 0       |
+|     c_V_370_fu_1598_p2       | -   |        | c_V_370       | add | fabric | 0       |
+|   + blake_round_11           | 0   |        |               |     |        |         |
+|     add_ln223_fu_342_p2      | -   |        | add_ln223     | add | tadder | 0       |
+|     a_V_387_fu_348_p2        | -   |        | a_V_387       | add | tadder | 0       |
+|     c_V_387_fu_554_p2        | -   |        | c_V_387       | add | fabric | 0       |
+|     add_ln223_561_fu_683_p2  | -   |        | add_ln223_561 | add | tadder | 0       |
+|     a_V_388_fu_689_p2        | -   |        | a_V_388       | add | tadder | 0       |
+|     c_V_388_fu_864_p2        | -   |        | c_V_388       | add | fabric | 0       |
+|     add_ln223_564_fu_400_p2  | -   |        | add_ln223_564 | add | tadder | 0       |
+|     a_V_389_fu_406_p2        | -   |        | a_V_389       | add | tadder | 0       |
+|     c_V_389_fu_585_p2        | -   |        | c_V_389       | add | fabric | 0       |
+|     add_ln223_567_fu_744_p2  | -   |        | add_ln223_567 | add | tadder | 0       |
+|     a_V_390_fu_750_p2        | -   |        | a_V_390       | add | tadder | 0       |
+|     c_V_390_fu_875_p2        | -   |        | c_V_390       | add | fabric | 0       |
+|     add_ln223_570_fu_458_p2  | -   |        | add_ln223_570 | add | tadder | 0       |
+|     a_V_391_fu_464_p2        | -   |        | a_V_391       | add | tadder | 0       |
+|     c_V_391_fu_616_p2        | -   |        | c_V_391       | add | fabric | 0       |
+|     add_ln223_573_fu_805_p2  | -   |        | add_ln223_573 | add | tadder | 0       |
+|     a_V_392_fu_811_p2        | -   |        | a_V_392       | add | tadder | 0       |
+|     c_V_392_fu_906_p2        | -   |        | c_V_392       | add | fabric | 0       |
+|     add_ln223_576_fu_516_p2  | -   |        | add_ln223_576 | add | tadder | 0       |
+|     a_V_393_fu_522_p2        | -   |        | a_V_393       | add | tadder | 0       |
+|     c_V_393_fu_647_p2        | -   |        | c_V_393       | add | fabric | 0       |
+|     add_ln223_579_fu_847_p2  | -   |        | add_ln223_579 | add | tadder | 0       |
+|     a_V_394_fu_853_p2        | -   |        | a_V_394       | add | tadder | 0       |
+|     c_V_394_fu_937_p2        | -   |        | c_V_394       | add | fabric | 0       |
+|     add_ln223_582_fu_1051_p2 | -   |        | add_ln223_582 | add | tadder | 0       |
+|     a_V_395_fu_1057_p2       | -   |        | a_V_395       | add | tadder | 0       |
+|     c_V_395_fu_1193_p2       | -   |        | c_V_395       | add | fabric | 0       |
+|     add_ln223_585_fu_1319_p2 | -   |        | add_ln223_585 | add | tadder | 0       |
+|     a_V_396_fu_1325_p2       | -   |        | a_V_396       | add | tadder | 0       |
+|     c_V_396_fu_1478_p2       | -   |        | c_V_396       | add | fabric | 0       |
+|     add_ln223_588_fu_1067_p2 | -   |        | add_ln223_588 | add | tadder | 0       |
+|     a_V_397_fu_1073_p2       | -   |        | a_V_397       | add | tadder | 0       |
+|     c_V_397_fu_1204_p2       | -   |        | c_V_397       | add | fabric | 0       |
+|     add_ln223_591_fu_1360_p2 | -   |        | add_ln223_591 | add | tadder | 0       |
+|     a_V_398_fu_1366_p2       | -   |        | a_V_398       | add | tadder | 0       |
+|     c_V_398_fu_1516_p2       | -   |        | c_V_398       | add | fabric | 0       |
+|     add_ln223_594_fu_1102_p2 | -   |        | add_ln223_594 | add | tadder | 0       |
+|     a_V_399_fu_1108_p2       | -   |        | a_V_399       | add | tadder | 0       |
+|     c_V_399_fu_1234_p2       | -   |        | c_V_399       | add | fabric | 0       |
+|     add_ln223_597_fu_1401_p2 | -   |        | add_ln223_597 | add | tadder | 0       |
+|     a_V_400_fu_1407_p2       | -   |        | a_V_400       | add | tadder | 0       |
+|     c_V_400_fu_1554_p2       | -   |        | c_V_400       | add | fabric | 0       |
+|     add_ln223_600_fu_1137_p2 | -   |        | add_ln223_600 | add | tadder | 0       |
+|     a_V_401_fu_1143_p2       | -   |        | a_V_401       | add | tadder | 0       |
+|     c_V_401_fu_1264_p2       | -   |        | c_V_401       | add | fabric | 0       |
+|     add_ln223_603_fu_1442_p2 | -   |        | add_ln223_603 | add | tadder | 0       |
+|     a_V_402_fu_1448_p2       | -   |        | a_V_402       | add | tadder | 0       |
+|     c_V_402_fu_1592_p2       | -   |        | c_V_402       | add | fabric | 0       |
+|   + blake_round_10           | 0   |        |               |     |        |         |
+|     add_ln223_fu_342_p2      | -   |        | add_ln223     | add | tadder | 0       |
+|     a_V_419_fu_348_p2        | -   |        | a_V_419       | add | tadder | 0       |
+|     c_V_419_fu_554_p2        | -   |        | c_V_419       | add | fabric | 0       |
+|     add_ln223_608_fu_683_p2  | -   |        | add_ln223_608 | add | tadder | 0       |
+|     a_V_420_fu_689_p2        | -   |        | a_V_420       | add | tadder | 0       |
+|     c_V_420_fu_902_p2        | -   |        | c_V_420       | add | fabric | 0       |
+|     add_ln223_611_fu_400_p2  | -   |        | add_ln223_611 | add | tadder | 0       |
+|     a_V_421_fu_406_p2        | -   |        | a_V_421       | add | tadder | 0       |
+|     c_V_421_fu_585_p2        | -   |        | c_V_421       | add | fabric | 0       |
+|     add_ln223_614_fu_744_p2  | -   |        | add_ln223_614 | add | tadder | 0       |
+|     a_V_422_fu_750_p2        | -   |        | a_V_422       | add | tadder | 0       |
+|     c_V_422_fu_913_p2        | -   |        | c_V_422       | add | fabric | 0       |
+|     add_ln223_617_fu_458_p2  | -   |        | add_ln223_617 | add | tadder | 0       |
+|     a_V_423_fu_464_p2        | -   |        | a_V_423       | add | tadder | 0       |
+|     c_V_423_fu_616_p2        | -   |        | c_V_423       | add | fabric | 0       |
+|     add_ln223_620_fu_805_p2  | -   |        | add_ln223_620 | add | tadder | 0       |
+|     a_V_424_fu_811_p2        | -   |        | a_V_424       | add | tadder | 0       |
+|     c_V_424_fu_924_p2        | -   |        | c_V_424       | add | fabric | 0       |
+|     add_ln223_623_fu_516_p2  | -   |        | add_ln223_623 | add | tadder | 0       |
+|     a_V_425_fu_522_p2        | -   |        | a_V_425       | add | tadder | 0       |
+|     c_V_425_fu_647_p2        | -   |        | c_V_425       | add | fabric | 0       |
+|     add_ln223_626_fu_866_p2  | -   |        | add_ln223_626 | add | tadder | 0       |
+|     a_V_426_fu_872_p2        | -   |        | a_V_426       | add | tadder | 0       |
+|     c_V_426_fu_935_p2        | -   |        | c_V_426       | add | fabric | 0       |
+|     add_ln223_629_fu_1049_p2 | -   |        | add_ln223_629 | add | tadder | 0       |
+|     a_V_427_fu_1055_p2       | -   |        | a_V_427       | add | tadder | 0       |
+|     c_V_427_fu_1153_p2       | -   |        | c_V_427       | add | fabric | 0       |
+|     add_ln223_632_fu_1281_p2 | -   |        | add_ln223_632 | add | tadder | 0       |
+|     a_V_428_fu_1287_p2       | -   |        | a_V_428       | add | tadder | 0       |
+|     c_V_428_fu_1480_p2       | -   |        | c_V_428       | add | fabric | 0       |
+|     add_ln223_635_fu_1065_p2 | -   |        | add_ln223_635 | add | tadder | 0       |
+|     a_V_429_fu_1071_p2       | -   |        | a_V_429       | add | tadder | 0       |
+|     c_V_429_fu_1164_p2       | -   |        | c_V_429       | add | fabric | 0       |
+|     add_ln223_638_fu_1322_p2 | -   |        | add_ln223_638 | add | tadder | 0       |
+|     a_V_430_fu_1328_p2       | -   |        | a_V_430       | add | tadder | 0       |
+|     c_V_430_fu_1518_p2       | -   |        | c_V_430       | add | fabric | 0       |
+|     add_ln223_641_fu_1100_p2 | -   |        | add_ln223_641 | add | tadder | 0       |
+|     a_V_431_fu_1106_p2       | -   |        | a_V_431       | add | tadder | 0       |
+|     c_V_431_fu_1214_p2       | -   |        | c_V_431       | add | fabric | 0       |
+|     add_ln223_644_fu_1383_p2 | -   |        | add_ln223_644 | add | tadder | 0       |
+|     a_V_432_fu_1389_p2       | -   |        | a_V_432       | add | tadder | 0       |
+|     c_V_432_fu_1556_p2       | -   |        | c_V_432       | add | fabric | 0       |
+|     add_ln223_647_fu_1116_p2 | -   |        | add_ln223_647 | add | tadder | 0       |
+|     a_V_433_fu_1122_p2       | -   |        | a_V_433       | add | tadder | 0       |
+|     c_V_433_fu_1245_p2       | -   |        | c_V_433       | add | fabric | 0       |
+|     add_ln223_650_fu_1444_p2 | -   |        | add_ln223_650 | add | tadder | 0       |
+|     a_V_434_fu_1450_p2       | -   |        | a_V_434       | add | tadder | 0       |
+|     c_V_434_fu_1594_p2       | -   |        | c_V_434       | add | fabric | 0       |
+|   + blake_round_9            | 0   |        |               |     |        |         |
+|     add_ln223_fu_342_p2      | -   |        | add_ln223     | add | tadder | 0       |
+|     a_V_20_fu_348_p2         | -   |        | a_V_20        | add | tadder | 0       |
+|     c_V_20_fu_554_p2         | -   |        | c_V_20        | add | fabric | 0       |
+|     add_ln223_3_fu_683_p2    | -   |        | add_ln223_3   | add | tadder | 0       |
+|     a_V_21_fu_689_p2         | -   |        | a_V_21        | add | tadder | 0       |
+|     c_V_21_fu_902_p2         | -   |        | c_V_21        | add | fabric | 0       |
+|     add_ln223_6_fu_400_p2    | -   |        | add_ln223_6   | add | tadder | 0       |
+|     a_V_22_fu_406_p2         | -   |        | a_V_22        | add | tadder | 0       |
+|     c_V_22_fu_585_p2         | -   |        | c_V_22        | add | fabric | 0       |
+|     add_ln223_9_fu_744_p2    | -   |        | add_ln223_9   | add | tadder | 0       |
+|     a_V_23_fu_750_p2         | -   |        | a_V_23        | add | tadder | 0       |
+|     c_V_23_fu_913_p2         | -   |        | c_V_23        | add | fabric | 0       |
+|     add_ln223_12_fu_458_p2   | -   |        | add_ln223_12  | add | tadder | 0       |
+|     a_V_24_fu_464_p2         | -   |        | a_V_24        | add | tadder | 0       |
+|     c_V_24_fu_616_p2         | -   |        | c_V_24        | add | fabric | 0       |
+|     add_ln223_15_fu_805_p2   | -   |        | add_ln223_15  | add | tadder | 0       |
+|     a_V_25_fu_811_p2         | -   |        | a_V_25        | add | tadder | 0       |
+|     c_V_25_fu_924_p2         | -   |        | c_V_25        | add | fabric | 0       |
+|     add_ln223_18_fu_516_p2   | -   |        | add_ln223_18  | add | tadder | 0       |
+|     a_V_26_fu_522_p2         | -   |        | a_V_26        | add | tadder | 0       |
+|     c_V_26_fu_647_p2         | -   |        | c_V_26        | add | fabric | 0       |
+|     add_ln223_21_fu_866_p2   | -   |        | add_ln223_21  | add | tadder | 0       |
+|     a_V_27_fu_872_p2         | -   |        | a_V_27        | add | tadder | 0       |
+|     c_V_27_fu_935_p2         | -   |        | c_V_27        | add | fabric | 0       |
+|     add_ln223_24_fu_1049_p2  | -   |        | add_ln223_24  | add | tadder | 0       |
+|     a_V_28_fu_1055_p2        | -   |        | a_V_28        | add | tadder | 0       |
+|     c_V_28_fu_1171_p2        | -   |        | c_V_28        | add | fabric | 0       |
+|     add_ln223_27_fu_1297_p2  | -   |        | add_ln223_27  | add | tadder | 0       |
+|     a_V_29_fu_1303_p2        | -   |        | a_V_29        | add | tadder | 0       |
+|     c_V_29_fu_1476_p2        | -   |        | c_V_29        | add | fabric | 0       |
+|     add_ln223_30_fu_1084_p2  | -   |        | add_ln223_30  | add | tadder | 0       |
+|     a_V_30_fu_1090_p2        | -   |        | a_V_30        | add | tadder | 0       |
+|     c_V_30_fu_1221_p2        | -   |        | c_V_30        | add | fabric | 0       |
+|     add_ln223_33_fu_1358_p2  | -   |        | add_ln223_33  | add | tadder | 0       |
+|     a_V_31_fu_1364_p2        | -   |        | a_V_31        | add | tadder | 0       |
+|     c_V_31_fu_1514_p2        | -   |        | c_V_31        | add | fabric | 0       |
+|     add_ln223_36_fu_1100_p2  | -   |        | add_ln223_36  | add | tadder | 0       |
+|     a_V_32_fu_1106_p2        | -   |        | a_V_32        | add | tadder | 0       |
+|     c_V_32_fu_1232_p2        | -   |        | c_V_32        | add | fabric | 0       |
+|     add_ln223_39_fu_1399_p2  | -   |        | add_ln223_39  | add | tadder | 0       |
+|     a_V_33_fu_1405_p2        | -   |        | a_V_33        | add | tadder | 0       |
+|     c_V_33_fu_1552_p2        | -   |        | c_V_33        | add | fabric | 0       |
+|     add_ln223_42_fu_1135_p2  | -   |        | add_ln223_42  | add | tadder | 0       |
+|     a_V_34_fu_1141_p2        | -   |        | a_V_34        | add | tadder | 0       |
+|     c_V_34_fu_1262_p2        | -   |        | c_V_34        | add | fabric | 0       |
+|     add_ln223_45_fu_1440_p2  | -   |        | add_ln223_45  | add | tadder | 0       |
+|     a_V_35_fu_1446_p2        | -   |        | a_V_35        | add | tadder | 0       |
+|     c_V_35_fu_1590_p2        | -   |        | c_V_35        | add | fabric | 0       |
+|   + blake_round_8            | 0   |        |               |     |        |         |
+|     add_ln223_fu_342_p2      | -   |        | add_ln223     | add | tadder | 0       |
+|     a_V_52_fu_348_p2         | -   |        | a_V_52        | add | tadder | 0       |
+|     c_V_52_fu_554_p2         | -   |        | c_V_52        | add | fabric | 0       |
+|     add_ln223_50_fu_683_p2   | -   |        | add_ln223_50  | add | tadder | 0       |
+|     a_V_53_fu_689_p2         | -   |        | a_V_53        | add | tadder | 0       |
+|     c_V_53_fu_865_p2         | -   |        | c_V_53        | add | fabric | 0       |
+|     add_ln223_53_fu_400_p2   | -   |        | add_ln223_53  | add | tadder | 0       |
+|     a_V_54_fu_406_p2         | -   |        | a_V_54        | add | tadder | 0       |
+|     c_V_54_fu_585_p2         | -   |        | c_V_54        | add | fabric | 0       |
+|     add_ln223_56_fu_725_p2   | -   |        | add_ln223_56  | add | tadder | 0       |
+|     a_V_55_fu_731_p2         | -   |        | a_V_55        | add | tadder | 0       |
+|     c_V_55_fu_896_p2         | -   |        | c_V_55        | add | fabric | 0       |
+|     add_ln223_59_fu_458_p2   | -   |        | add_ln223_59  | add | tadder | 0       |
+|     a_V_56_fu_464_p2         | -   |        | a_V_56        | add | tadder | 0       |
+|     c_V_56_fu_616_p2         | -   |        | c_V_56        | add | fabric | 0       |
+|     add_ln223_62_fu_767_p2   | -   |        | add_ln223_62  | add | tadder | 0       |
+|     a_V_57_fu_773_p2         | -   |        | a_V_57        | add | tadder | 0       |
+|     c_V_57_fu_927_p2         | -   |        | c_V_57        | add | fabric | 0       |
+|     add_ln223_65_fu_516_p2   | -   |        | add_ln223_65  | add | tadder | 0       |
+|     a_V_58_fu_522_p2         | -   |        | a_V_58        | add | tadder | 0       |
+|     c_V_58_fu_647_p2         | -   |        | c_V_58        | add | fabric | 0       |
+|     add_ln223_68_fu_809_p2   | -   |        | add_ln223_68  | add | tadder | 0       |
+|     a_V_59_fu_815_p2         | -   |        | a_V_59        | add | tadder | 0       |
+|     c_V_59_fu_938_p2         | -   |        | c_V_59        | add | fabric | 0       |
+|     add_ln223_71_fu_1052_p2  | -   |        | add_ln223_71  | add | tadder | 0       |
+|     a_V_60_fu_1058_p2        | -   |        | a_V_60        | add | tadder | 0       |
+|     c_V_60_fu_1175_p2        | -   |        | c_V_60        | add | fabric | 0       |
+|     add_ln223_74_fu_1283_p2  | -   |        | add_ln223_74  | add | tadder | 0       |
+|     a_V_61_fu_1289_p2        | -   |        | a_V_61        | add | tadder | 0       |
+|     c_V_61_fu_1482_p2        | -   |        | c_V_61        | add | fabric | 0       |
+|     add_ln223_77_fu_1068_p2  | -   |        | add_ln223_77  | add | tadder | 0       |
+|     a_V_62_fu_1074_p2        | -   |        | a_V_62        | add | tadder | 0       |
+|     c_V_62_fu_1186_p2        | -   |        | c_V_62        | add | fabric | 0       |
+|     add_ln223_80_fu_1324_p2  | -   |        | add_ln223_80  | add | tadder | 0       |
+|     a_V_63_fu_1330_p2        | -   |        | a_V_63        | add | tadder | 0       |
+|     c_V_63_fu_1520_p2        | -   |        | c_V_63        | add | fabric | 0       |
+|     add_ln223_83_fu_1103_p2  | -   |        | add_ln223_83  | add | tadder | 0       |
+|     a_V_64_fu_1109_p2        | -   |        | a_V_64        | add | tadder | 0       |
+|     c_V_64_fu_1236_p2        | -   |        | c_V_64        | add | fabric | 0       |
+|     add_ln223_86_fu_1385_p2  | -   |        | add_ln223_86  | add | tadder | 0       |
+|     a_V_65_fu_1391_p2        | -   |        | a_V_65        | add | tadder | 0       |
+|     c_V_65_fu_1558_p2        | -   |        | c_V_65        | add | fabric | 0       |
+|     add_ln223_89_fu_1119_p2  | -   |        | add_ln223_89  | add | tadder | 0       |
+|     a_V_66_fu_1125_p2        | -   |        | a_V_66        | add | tadder | 0       |
+|     c_V_66_fu_1247_p2        | -   |        | c_V_66        | add | fabric | 0       |
+|     add_ln223_92_fu_1446_p2  | -   |        | add_ln223_92  | add | tadder | 0       |
+|     a_V_67_fu_1452_p2        | -   |        | a_V_67        | add | tadder | 0       |
+|     c_V_67_fu_1596_p2        | -   |        | c_V_67        | add | fabric | 0       |
+|   + blake_round_7            | 0   |        |               |     |        |         |
+|     add_ln223_fu_342_p2      | -   |        | add_ln223     | add | tadder | 0       |
+|     a_V_84_fu_348_p2         | -   |        | a_V_84        | add | tadder | 0       |
+|     c_V_84_fu_554_p2         | -   |        | c_V_84        | add | fabric | 0       |
+|     add_ln223_97_fu_683_p2   | -   |        | add_ln223_97  | add | tadder | 0       |
+|     a_V_85_fu_689_p2         | -   |        | a_V_85        | add | tadder | 0       |
+|     c_V_85_fu_864_p2         | -   |        | c_V_85        | add | fabric | 0       |
+|     add_ln223_100_fu_400_p2  | -   |        | add_ln223_100 | add | tadder | 0       |
+|     a_V_86_fu_406_p2         | -   |        | a_V_86        | add | tadder | 0       |
+|     c_V_86_fu_585_p2         | -   |        | c_V_86        | add | fabric | 0       |
+|     add_ln223_103_fu_744_p2  | -   |        | add_ln223_103 | add | tadder | 0       |
+|     a_V_87_fu_750_p2         | -   |        | a_V_87        | add | tadder | 0       |
+|     c_V_87_fu_895_p2         | -   |        | c_V_87        | add | fabric | 0       |
+|     add_ln223_106_fu_458_p2  | -   |        | add_ln223_106 | add | tadder | 0       |
+|     a_V_88_fu_464_p2         | -   |        | a_V_88        | add | tadder | 0       |
+|     c_V_88_fu_616_p2         | -   |        | c_V_88        | add | fabric | 0       |
+|     add_ln223_109_fu_786_p2  | -   |        | add_ln223_109 | add | tadder | 0       |
+|     a_V_89_fu_792_p2         | -   |        | a_V_89        | add | tadder | 0       |
+|     c_V_89_fu_906_p2         | -   |        | c_V_89        | add | fabric | 0       |
+|     add_ln223_112_fu_516_p2  | -   |        | add_ln223_112 | add | tadder | 0       |
+|     a_V_90_fu_522_p2         | -   |        | a_V_90        | add | tadder | 0       |
+|     c_V_90_fu_647_p2         | -   |        | c_V_90        | add | fabric | 0       |
+|     add_ln223_115_fu_847_p2  | -   |        | add_ln223_115 | add | tadder | 0       |
+|     a_V_91_fu_853_p2         | -   |        | a_V_91        | add | tadder | 0       |
+|     c_V_91_fu_937_p2         | -   |        | c_V_91        | add | fabric | 0       |
+|     add_ln223_118_fu_1051_p2 | -   |        | add_ln223_118 | add | tadder | 0       |
+|     a_V_92_fu_1057_p2        | -   |        | a_V_92        | add | tadder | 0       |
+|     c_V_92_fu_1155_p2        | -   |        | c_V_92        | add | fabric | 0       |
+|     add_ln223_121_fu_1283_p2 | -   |        | add_ln223_121 | add | tadder | 0       |
+|     a_V_93_fu_1289_p2        | -   |        | a_V_93        | add | tadder | 0       |
+|     c_V_93_fu_1482_p2        | -   |        | c_V_93        | add | fabric | 0       |
+|     add_ln223_124_fu_1067_p2 | -   |        | add_ln223_124 | add | tadder | 0       |
+|     a_V_94_fu_1073_p2        | -   |        | a_V_94        | add | tadder | 0       |
+|     c_V_94_fu_1186_p2        | -   |        | c_V_94        | add | fabric | 0       |
+|     add_ln223_127_fu_1344_p2 | -   |        | add_ln223_127 | add | tadder | 0       |
+|     a_V_95_fu_1350_p2        | -   |        | a_V_95        | add | tadder | 0       |
+|     c_V_95_fu_1520_p2        | -   |        | c_V_95        | add | fabric | 0       |
+|     add_ln223_130_fu_1083_p2 | -   |        | add_ln223_130 | add | tadder | 0       |
+|     a_V_96_fu_1089_p2        | -   |        | a_V_96        | add | tadder | 0       |
+|     c_V_96_fu_1197_p2        | -   |        | c_V_96        | add | fabric | 0       |
+|     add_ln223_133_fu_1385_p2 | -   |        | add_ln223_133 | add | tadder | 0       |
+|     a_V_97_fu_1391_p2        | -   |        | a_V_97        | add | tadder | 0       |
+|     c_V_97_fu_1558_p2        | -   |        | c_V_97        | add | fabric | 0       |
+|     add_ln223_136_fu_1118_p2 | -   |        | add_ln223_136 | add | tadder | 0       |
+|     a_V_98_fu_1124_p2        | -   |        | a_V_98        | add | tadder | 0       |
+|     c_V_98_fu_1247_p2        | -   |        | c_V_98        | add | fabric | 0       |
+|     add_ln223_139_fu_1446_p2 | -   |        | add_ln223_139 | add | tadder | 0       |
+|     a_V_99_fu_1452_p2        | -   |        | a_V_99        | add | tadder | 0       |
+|     c_V_99_fu_1596_p2        | -   |        | c_V_99        | add | fabric | 0       |
+|   + blake_round_6            | 0   |        |               |     |        |         |
+|     add_ln223_fu_342_p2      | -   |        | add_ln223     | add | tadder | 0       |
+|     a_V_116_fu_348_p2        | -   |        | a_V_116       | add | tadder | 0       |
+|     c_V_116_fu_554_p2        | -   |        | c_V_116       | add | fabric | 0       |
+|     add_ln223_144_fu_683_p2  | -   |        | add_ln223_144 | add | tadder | 0       |
+|     a_V_117_fu_689_p2        | -   |        | a_V_117       | add | tadder | 0       |
+|     c_V_117_fu_883_p2        | -   |        | c_V_117       | add | fabric | 0       |
+|     add_ln223_147_fu_400_p2  | -   |        | add_ln223_147 | add | tadder | 0       |
+|     a_V_118_fu_406_p2        | -   |        | a_V_118       | add | tadder | 0       |
+|     c_V_118_fu_585_p2        | -   |        | c_V_118       | add | fabric | 0       |
+|     add_ln223_150_fu_744_p2  | -   |        | add_ln223_150 | add | tadder | 0       |
+|     a_V_119_fu_750_p2        | -   |        | a_V_119       | add | tadder | 0       |
+|     c_V_119_fu_914_p2        | -   |        | c_V_119       | add | fabric | 0       |
+|     add_ln223_153_fu_458_p2  | -   |        | add_ln223_153 | add | tadder | 0       |
+|     a_V_120_fu_464_p2        | -   |        | a_V_120       | add | tadder | 0       |
+|     c_V_120_fu_616_p2        | -   |        | c_V_120       | add | fabric | 0       |
+|     add_ln223_156_fu_786_p2  | -   |        | add_ln223_156 | add | tadder | 0       |
+|     a_V_121_fu_792_p2        | -   |        | a_V_121       | add | tadder | 0       |
+|     c_V_121_fu_925_p2        | -   |        | c_V_121       | add | fabric | 0       |
+|     add_ln223_159_fu_516_p2  | -   |        | add_ln223_159 | add | tadder | 0       |
+|     a_V_122_fu_522_p2        | -   |        | a_V_122       | add | tadder | 0       |
+|     c_V_122_fu_647_p2        | -   |        | c_V_122       | add | fabric | 0       |
+|     add_ln223_162_fu_847_p2  | -   |        | add_ln223_162 | add | tadder | 0       |
+|     a_V_123_fu_853_p2        | -   |        | a_V_123       | add | tadder | 0       |
+|     c_V_123_fu_936_p2        | -   |        | c_V_123       | add | fabric | 0       |
+|     add_ln223_165_fu_1050_p2 | -   |        | add_ln223_165 | add | tadder | 0       |
+|     a_V_124_fu_1056_p2       | -   |        | a_V_124       | add | tadder | 0       |
+|     c_V_124_fu_1173_p2       | -   |        | c_V_124       | add | fabric | 0       |
+|     add_ln223_168_fu_1300_p2 | -   |        | add_ln223_168 | add | tadder | 0       |
+|     a_V_125_fu_1306_p2       | -   |        | a_V_125       | add | tadder | 0       |
+|     c_V_125_fu_1479_p2       | -   |        | c_V_125       | add | fabric | 0       |
+|     add_ln223_171_fu_1066_p2 | -   |        | add_ln223_171 | add | tadder | 0       |
+|     a_V_126_fu_1072_p2       | -   |        | a_V_126       | add | tadder | 0       |
+|     c_V_126_fu_1184_p2       | -   |        | c_V_126       | add | fabric | 0       |
+|     add_ln223_174_fu_1341_p2 | -   |        | add_ln223_174 | add | tadder | 0       |
+|     a_V_127_fu_1347_p2       | -   |        | a_V_127       | add | tadder | 0       |
+|     c_V_127_fu_1517_p2       | -   |        | c_V_127       | add | fabric | 0       |
+|     add_ln223_177_fu_1101_p2 | -   |        | add_ln223_177 | add | tadder | 0       |
+|     a_V_128_fu_1107_p2       | -   |        | a_V_128       | add | tadder | 0       |
+|     c_V_128_fu_1214_p2       | -   |        | c_V_128       | add | fabric | 0       |
+|     add_ln223_180_fu_1382_p2 | -   |        | add_ln223_180 | add | tadder | 0       |
+|     a_V_129_fu_1388_p2       | -   |        | a_V_129       | add | tadder | 0       |
+|     c_V_129_fu_1555_p2       | -   |        | c_V_129       | add | fabric | 0       |
+|     add_ln223_183_fu_1136_p2 | -   |        | add_ln223_183 | add | tadder | 0       |
+|     a_V_130_fu_1142_p2       | -   |        | a_V_130       | add | tadder | 0       |
+|     c_V_130_fu_1264_p2       | -   |        | c_V_130       | add | fabric | 0       |
+|     add_ln223_186_fu_1443_p2 | -   |        | add_ln223_186 | add | tadder | 0       |
+|     a_V_131_fu_1449_p2       | -   |        | a_V_131       | add | tadder | 0       |
+|     c_V_131_fu_1593_p2       | -   |        | c_V_131       | add | fabric | 0       |
+|   + blake_round_5            | 0   |        |               |     |        |         |
+|     add_ln223_fu_342_p2      | -   |        | add_ln223     | add | tadder | 0       |
+|     a_V_148_fu_348_p2        | -   |        | a_V_148       | add | tadder | 0       |
+|     c_V_148_fu_554_p2        | -   |        | c_V_148       | add | fabric | 0       |
+|     add_ln223_191_fu_683_p2  | -   |        | add_ln223_191 | add | tadder | 0       |
+|     a_V_149_fu_689_p2        | -   |        | a_V_149       | add | tadder | 0       |
+|     c_V_149_fu_865_p2        | -   |        | c_V_149       | add | fabric | 0       |
+|     add_ln223_194_fu_400_p2  | -   |        | add_ln223_194 | add | tadder | 0       |
+|     a_V_150_fu_406_p2        | -   |        | a_V_150       | add | tadder | 0       |
+|     c_V_150_fu_585_p2        | -   |        | c_V_150       | add | fabric | 0       |
+|     add_ln223_197_fu_725_p2  | -   |        | add_ln223_197 | add | tadder | 0       |
+|     a_V_151_fu_731_p2        | -   |        | a_V_151       | add | tadder | 0       |
+|     c_V_151_fu_876_p2        | -   |        | c_V_151       | add | fabric | 0       |
+|     add_ln223_200_fu_458_p2  | -   |        | add_ln223_200 | add | tadder | 0       |
+|     a_V_152_fu_464_p2        | -   |        | a_V_152       | add | tadder | 0       |
+|     c_V_152_fu_616_p2        | -   |        | c_V_152       | add | fabric | 0       |
+|     add_ln223_203_fu_786_p2  | -   |        | add_ln223_203 | add | tadder | 0       |
+|     a_V_153_fu_792_p2        | -   |        | a_V_153       | add | tadder | 0       |
+|     c_V_153_fu_907_p2        | -   |        | c_V_153       | add | fabric | 0       |
+|     add_ln223_206_fu_516_p2  | -   |        | add_ln223_206 | add | tadder | 0       |
+|     a_V_154_fu_522_p2        | -   |        | a_V_154       | add | tadder | 0       |
+|     c_V_154_fu_647_p2        | -   |        | c_V_154       | add | fabric | 0       |
+|     add_ln223_209_fu_828_p2  | -   |        | add_ln223_209 | add | tadder | 0       |
+|     a_V_155_fu_834_p2        | -   |        | a_V_155       | add | tadder | 0       |
+|     c_V_155_fu_938_p2        | -   |        | c_V_155       | add | fabric | 0       |
+|     add_ln223_212_fu_1052_p2 | -   |        | add_ln223_212 | add | tadder | 0       |
+|     a_V_156_fu_1058_p2       | -   |        | a_V_156       | add | tadder | 0       |
+|     c_V_156_fu_1175_p2       | -   |        | c_V_156       | add | fabric | 0       |
+|     add_ln223_215_fu_1283_p2 | -   |        | add_ln223_215 | add | tadder | 0       |
+|     a_V_157_fu_1289_p2       | -   |        | a_V_157       | add | tadder | 0       |
+|     c_V_157_fu_1482_p2       | -   |        | c_V_157       | add | fabric | 0       |
+|     add_ln223_218_fu_1068_p2 | -   |        | add_ln223_218 | add | tadder | 0       |
+|     a_V_158_fu_1074_p2       | -   |        | a_V_158       | add | tadder | 0       |
+|     c_V_158_fu_1186_p2       | -   |        | c_V_158       | add | fabric | 0       |
+|     add_ln223_221_fu_1344_p2 | -   |        | add_ln223_221 | add | tadder | 0       |
+|     a_V_159_fu_1350_p2       | -   |        | a_V_159       | add | tadder | 0       |
+|     c_V_159_fu_1520_p2       | -   |        | c_V_159       | add | fabric | 0       |
+|     add_ln223_224_fu_1103_p2 | -   |        | add_ln223_224 | add | tadder | 0       |
+|     a_V_160_fu_1109_p2       | -   |        | a_V_160       | add | tadder | 0       |
+|     c_V_160_fu_1197_p2       | -   |        | c_V_160       | add | fabric | 0       |
+|     add_ln223_227_fu_1385_p2 | -   |        | add_ln223_227 | add | tadder | 0       |
+|     a_V_161_fu_1391_p2       | -   |        | a_V_161       | add | tadder | 0       |
+|     c_V_161_fu_1558_p2       | -   |        | c_V_161       | add | fabric | 0       |
+|     add_ln223_230_fu_1138_p2 | -   |        | add_ln223_230 | add | tadder | 0       |
+|     a_V_162_fu_1144_p2       | -   |        | a_V_162       | add | tadder | 0       |
+|     c_V_162_fu_1247_p2       | -   |        | c_V_162       | add | fabric | 0       |
+|     add_ln223_233_fu_1446_p2 | -   |        | add_ln223_233 | add | tadder | 0       |
+|     a_V_163_fu_1452_p2       | -   |        | a_V_163       | add | tadder | 0       |
+|     c_V_163_fu_1596_p2       | -   |        | c_V_163       | add | fabric | 0       |
+|   + blake_round_4            | 0   |        |               |     |        |         |
+|     add_ln223_fu_342_p2      | -   |        | add_ln223     | add | tadder | 0       |
+|     a_V_180_fu_348_p2        | -   |        | a_V_180       | add | tadder | 0       |
+|     c_V_180_fu_554_p2        | -   |        | c_V_180       | add | fabric | 0       |
+|     add_ln223_238_fu_683_p2  | -   |        | add_ln223_238 | add | tadder | 0       |
+|     a_V_181_fu_689_p2        | -   |        | a_V_181       | add | tadder | 0       |
+|     c_V_181_fu_884_p2        | -   |        | c_V_181       | add | fabric | 0       |
+|     add_ln223_241_fu_400_p2  | -   |        | add_ln223_241 | add | tadder | 0       |
+|     a_V_182_fu_406_p2        | -   |        | a_V_182       | add | tadder | 0       |
+|     c_V_182_fu_585_p2        | -   |        | c_V_182       | add | fabric | 0       |
+|     add_ln223_244_fu_725_p2  | -   |        | add_ln223_244 | add | tadder | 0       |
+|     a_V_183_fu_731_p2        | -   |        | a_V_183       | add | tadder | 0       |
+|     c_V_183_fu_895_p2        | -   |        | c_V_183       | add | fabric | 0       |
+|     add_ln223_247_fu_458_p2  | -   |        | add_ln223_247 | add | tadder | 0       |
+|     a_V_184_fu_464_p2        | -   |        | a_V_184       | add | tadder | 0       |
+|     c_V_184_fu_616_p2        | -   |        | c_V_184       | add | fabric | 0       |
+|     add_ln223_250_fu_786_p2  | -   |        | add_ln223_250 | add | tadder | 0       |
+|     a_V_185_fu_792_p2        | -   |        | a_V_185       | add | tadder | 0       |
+|     c_V_185_fu_926_p2        | -   |        | c_V_185       | add | fabric | 0       |
+|     add_ln223_253_fu_516_p2  | -   |        | add_ln223_253 | add | tadder | 0       |
+|     a_V_186_fu_522_p2        | -   |        | a_V_186       | add | tadder | 0       |
+|     c_V_186_fu_647_p2        | -   |        | c_V_186       | add | fabric | 0       |
+|     add_ln223_256_fu_828_p2  | -   |        | add_ln223_256 | add | tadder | 0       |
+|     a_V_187_fu_834_p2        | -   |        | a_V_187       | add | tadder | 0       |
+|     c_V_187_fu_937_p2        | -   |        | c_V_187       | add | fabric | 0       |
+|     add_ln223_259_fu_1051_p2 | -   |        | add_ln223_259 | add | tadder | 0       |
+|     a_V_188_fu_1057_p2       | -   |        | a_V_188       | add | tadder | 0       |
+|     c_V_188_fu_1136_p2       | -   |        | c_V_188       | add | fabric | 0       |
+|     add_ln223_262_fu_1265_p2 | -   |        | add_ln223_262 | add | tadder | 0       |
+|     a_V_189_fu_1271_p2       | -   |        | a_V_189       | add | tadder | 0       |
+|     c_V_189_fu_1484_p2       | -   |        | c_V_189       | add | fabric | 0       |
+|     add_ln223_265_fu_1067_p2 | -   |        | add_ln223_265 | add | tadder | 0       |
+|     a_V_190_fu_1073_p2       | -   |        | a_V_190       | add | tadder | 0       |
+|     c_V_190_fu_1167_p2       | -   |        | c_V_190       | add | fabric | 0       |
+|     add_ln223_268_fu_1326_p2 | -   |        | add_ln223_268 | add | tadder | 0       |
+|     a_V_191_fu_1332_p2       | -   |        | a_V_191       | add | tadder | 0       |
+|     c_V_191_fu_1522_p2       | -   |        | c_V_191       | add | fabric | 0       |
+|     add_ln223_271_fu_1083_p2 | -   |        | add_ln223_271 | add | tadder | 0       |
+|     a_V_192_fu_1089_p2       | -   |        | a_V_192       | add | tadder | 0       |
+|     c_V_192_fu_1198_p2       | -   |        | c_V_192       | add | fabric | 0       |
+|     add_ln223_274_fu_1387_p2 | -   |        | add_ln223_274 | add | tadder | 0       |
+|     a_V_193_fu_1393_p2       | -   |        | a_V_193       | add | tadder | 0       |
+|     c_V_193_fu_1560_p2       | -   |        | c_V_193       | add | fabric | 0       |
+|     add_ln223_277_fu_1099_p2 | -   |        | add_ln223_277 | add | tadder | 0       |
+|     a_V_194_fu_1105_p2       | -   |        | a_V_194       | add | tadder | 0       |
+|     c_V_194_fu_1229_p2       | -   |        | c_V_194       | add | fabric | 0       |
+|     add_ln223_280_fu_1448_p2 | -   |        | add_ln223_280 | add | tadder | 0       |
+|     a_V_195_fu_1454_p2       | -   |        | a_V_195       | add | tadder | 0       |
+|     c_V_195_fu_1598_p2       | -   |        | c_V_195       | add | fabric | 0       |
+|   + blake_round_3            | 0   |        |               |     |        |         |
+|     add_ln223_fu_342_p2      | -   |        | add_ln223     | add | tadder | 0       |
+|     a_V_212_fu_348_p2        | -   |        | a_V_212       | add | tadder | 0       |
+|     c_V_212_fu_554_p2        | -   |        | c_V_212       | add | fabric | 0       |
+|     add_ln223_285_fu_683_p2  | -   |        | add_ln223_285 | add | tadder | 0       |
+|     a_V_213_fu_689_p2        | -   |        | a_V_213       | add | tadder | 0       |
+|     c_V_213_fu_864_p2        | -   |        | c_V_213       | add | fabric | 0       |
+|     add_ln223_288_fu_400_p2  | -   |        | add_ln223_288 | add | tadder | 0       |
+|     a_V_214_fu_406_p2        | -   |        | a_V_214       | add | tadder | 0       |
+|     c_V_214_fu_585_p2        | -   |        | c_V_214       | add | fabric | 0       |
+|     add_ln223_291_fu_744_p2  | -   |        | add_ln223_291 | add | tadder | 0       |
+|     a_V_215_fu_750_p2        | -   |        | a_V_215       | add | tadder | 0       |
+|     c_V_215_fu_895_p2        | -   |        | c_V_215       | add | fabric | 0       |
+|     add_ln223_294_fu_458_p2  | -   |        | add_ln223_294 | add | tadder | 0       |
+|     a_V_216_fu_464_p2        | -   |        | a_V_216       | add | tadder | 0       |
+|     c_V_216_fu_616_p2        | -   |        | c_V_216       | add | fabric | 0       |
+|     add_ln223_297_fu_786_p2  | -   |        | add_ln223_297 | add | tadder | 0       |
+|     a_V_217_fu_792_p2        | -   |        | a_V_217       | add | tadder | 0       |
+|     c_V_217_fu_926_p2        | -   |        | c_V_217       | add | fabric | 0       |
+|     add_ln223_300_fu_516_p2  | -   |        | add_ln223_300 | add | tadder | 0       |
+|     a_V_218_fu_522_p2        | -   |        | a_V_218       | add | tadder | 0       |
+|     c_V_218_fu_647_p2        | -   |        | c_V_218       | add | fabric | 0       |
+|     add_ln223_303_fu_828_p2  | -   |        | add_ln223_303 | add | tadder | 0       |
+|     a_V_219_fu_834_p2        | -   |        | a_V_219       | add | tadder | 0       |
+|     c_V_219_fu_937_p2        | -   |        | c_V_219       | add | fabric | 0       |
+|     add_ln223_306_fu_1051_p2 | -   |        | add_ln223_306 | add | tadder | 0       |
+|     a_V_220_fu_1057_p2       | -   |        | a_V_220       | add | tadder | 0       |
+|     c_V_220_fu_1136_p2       | -   |        | c_V_220       | add | fabric | 0       |
+|     add_ln223_309_fu_1265_p2 | -   |        | add_ln223_309 | add | tadder | 0       |
+|     a_V_221_fu_1271_p2       | -   |        | a_V_221       | add | tadder | 0       |
+|     c_V_221_fu_1484_p2       | -   |        | c_V_221       | add | fabric | 0       |
+|     add_ln223_312_fu_1067_p2 | -   |        | add_ln223_312 | add | tadder | 0       |
+|     a_V_222_fu_1073_p2       | -   |        | a_V_222       | add | tadder | 0       |
+|     c_V_222_fu_1167_p2       | -   |        | c_V_222       | add | fabric | 0       |
+|     add_ln223_315_fu_1326_p2 | -   |        | add_ln223_315 | add | tadder | 0       |
+|     a_V_223_fu_1332_p2       | -   |        | a_V_223       | add | tadder | 0       |
+|     c_V_223_fu_1522_p2       | -   |        | c_V_223       | add | fabric | 0       |
+|     add_ln223_318_fu_1083_p2 | -   |        | add_ln223_318 | add | tadder | 0       |
+|     a_V_224_fu_1089_p2       | -   |        | a_V_224       | add | tadder | 0       |
+|     c_V_224_fu_1198_p2       | -   |        | c_V_224       | add | fabric | 0       |
+|     add_ln223_321_fu_1387_p2 | -   |        | add_ln223_321 | add | tadder | 0       |
+|     a_V_225_fu_1393_p2       | -   |        | a_V_225       | add | tadder | 0       |
+|     c_V_225_fu_1560_p2       | -   |        | c_V_225       | add | fabric | 0       |
+|     add_ln223_324_fu_1099_p2 | -   |        | add_ln223_324 | add | tadder | 0       |
+|     a_V_226_fu_1105_p2       | -   |        | a_V_226       | add | tadder | 0       |
+|     c_V_226_fu_1229_p2       | -   |        | c_V_226       | add | fabric | 0       |
+|     add_ln223_327_fu_1448_p2 | -   |        | add_ln223_327 | add | tadder | 0       |
+|     a_V_227_fu_1454_p2       | -   |        | a_V_227       | add | tadder | 0       |
+|     c_V_227_fu_1598_p2       | -   |        | c_V_227       | add | fabric | 0       |
+|   + blake_round_2            | 0   |        |               |     |        |         |
+|     add_ln223_fu_342_p2      | -   |        | add_ln223     | add | tadder | 0       |
+|     a_V_244_fu_348_p2        | -   |        | a_V_244       | add | tadder | 0       |
+|     c_V_244_fu_554_p2        | -   |        | c_V_244       | add | fabric | 0       |
+|     add_ln223_332_fu_683_p2  | -   |        | add_ln223_332 | add | tadder | 0       |
+|     a_V_245_fu_689_p2        | -   |        | a_V_245       | add | tadder | 0       |
+|     c_V_245_fu_864_p2        | -   |        | c_V_245       | add | fabric | 0       |
+|     add_ln223_335_fu_400_p2  | -   |        | add_ln223_335 | add | tadder | 0       |
+|     a_V_246_fu_406_p2        | -   |        | a_V_246       | add | tadder | 0       |
+|     c_V_246_fu_585_p2        | -   |        | c_V_246       | add | fabric | 0       |
+|     add_ln223_338_fu_744_p2  | -   |        | add_ln223_338 | add | tadder | 0       |
+|     a_V_247_fu_750_p2        | -   |        | a_V_247       | add | tadder | 0       |
+|     c_V_247_fu_895_p2        | -   |        | c_V_247       | add | fabric | 0       |
+|     add_ln223_341_fu_458_p2  | -   |        | add_ln223_341 | add | tadder | 0       |
+|     a_V_248_fu_464_p2        | -   |        | a_V_248       | add | tadder | 0       |
+|     c_V_248_fu_616_p2        | -   |        | c_V_248       | add | fabric | 0       |
+|     add_ln223_344_fu_786_p2  | -   |        | add_ln223_344 | add | tadder | 0       |
+|     a_V_249_fu_792_p2        | -   |        | a_V_249       | add | tadder | 0       |
+|     c_V_249_fu_926_p2        | -   |        | c_V_249       | add | fabric | 0       |
+|     add_ln223_347_fu_516_p2  | -   |        | add_ln223_347 | add | tadder | 0       |
+|     a_V_250_fu_522_p2        | -   |        | a_V_250       | add | tadder | 0       |
+|     c_V_250_fu_647_p2        | -   |        | c_V_250       | add | fabric | 0       |
+|     add_ln223_350_fu_828_p2  | -   |        | add_ln223_350 | add | tadder | 0       |
+|     a_V_251_fu_834_p2        | -   |        | a_V_251       | add | tadder | 0       |
+|     c_V_251_fu_937_p2        | -   |        | c_V_251       | add | fabric | 0       |
+|     add_ln223_353_fu_1051_p2 | -   |        | add_ln223_353 | add | tadder | 0       |
+|     a_V_252_fu_1057_p2       | -   |        | a_V_252       | add | tadder | 0       |
+|     c_V_252_fu_1136_p2       | -   |        | c_V_252       | add | fabric | 0       |
+|     add_ln223_356_fu_1265_p2 | -   |        | add_ln223_356 | add | tadder | 0       |
+|     a_V_253_fu_1271_p2       | -   |        | a_V_253       | add | tadder | 0       |
+|     c_V_253_fu_1484_p2       | -   |        | c_V_253       | add | fabric | 0       |
+|     add_ln223_359_fu_1067_p2 | -   |        | add_ln223_359 | add | tadder | 0       |
+|     a_V_254_fu_1073_p2       | -   |        | a_V_254       | add | tadder | 0       |
+|     c_V_254_fu_1167_p2       | -   |        | c_V_254       | add | fabric | 0       |
+|     add_ln223_362_fu_1326_p2 | -   |        | add_ln223_362 | add | tadder | 0       |
+|     a_V_255_fu_1332_p2       | -   |        | a_V_255       | add | tadder | 0       |
+|     c_V_255_fu_1522_p2       | -   |        | c_V_255       | add | fabric | 0       |
+|     add_ln223_365_fu_1083_p2 | -   |        | add_ln223_365 | add | tadder | 0       |
+|     a_V_256_fu_1089_p2       | -   |        | a_V_256       | add | tadder | 0       |
+|     c_V_256_fu_1198_p2       | -   |        | c_V_256       | add | fabric | 0       |
+|     add_ln223_368_fu_1387_p2 | -   |        | add_ln223_368 | add | tadder | 0       |
+|     a_V_257_fu_1393_p2       | -   |        | a_V_257       | add | tadder | 0       |
+|     c_V_257_fu_1560_p2       | -   |        | c_V_257       | add | fabric | 0       |
+|     add_ln223_371_fu_1099_p2 | -   |        | add_ln223_371 | add | tadder | 0       |
+|     a_V_258_fu_1105_p2       | -   |        | a_V_258       | add | tadder | 0       |
+|     c_V_258_fu_1229_p2       | -   |        | c_V_258       | add | fabric | 0       |
+|     add_ln223_374_fu_1448_p2 | -   |        | add_ln223_374 | add | tadder | 0       |
+|     a_V_259_fu_1454_p2       | -   |        | a_V_259       | add | tadder | 0       |
+|     c_V_259_fu_1598_p2       | -   |        | c_V_259       | add | fabric | 0       |
+|   + blake_round_1            | 0   |        |               |     |        |         |
+|     add_ln223_fu_342_p2      | -   |        | add_ln223     | add | tadder | 0       |
+|     a_V_451_fu_348_p2        | -   |        | a_V_451       | add | tadder | 0       |
+|     c_V_451_fu_554_p2        | -   |        | c_V_451       | add | fabric | 0       |
+|     add_ln223_655_fu_683_p2  | -   |        | add_ln223_655 | add | tadder | 0       |
+|     a_V_452_fu_689_p2        | -   |        | a_V_452       | add | tadder | 0       |
+|     c_V_452_fu_864_p2        | -   |        | c_V_452       | add | fabric | 0       |
+|     add_ln223_658_fu_400_p2  | -   |        | add_ln223_658 | add | tadder | 0       |
+|     a_V_453_fu_406_p2        | -   |        | a_V_453       | add | tadder | 0       |
+|     c_V_453_fu_585_p2        | -   |        | c_V_453       | add | fabric | 0       |
+|     add_ln223_661_fu_744_p2  | -   |        | add_ln223_661 | add | tadder | 0       |
+|     a_V_454_fu_750_p2        | -   |        | a_V_454       | add | tadder | 0       |
+|     c_V_454_fu_875_p2        | -   |        | c_V_454       | add | fabric | 0       |
+|     add_ln223_664_fu_458_p2  | -   |        | add_ln223_664 | add | tadder | 0       |
+|     a_V_455_fu_464_p2        | -   |        | a_V_455       | add | tadder | 0       |
+|     c_V_455_fu_616_p2        | -   |        | c_V_455       | add | fabric | 0       |
+|     add_ln223_667_fu_805_p2  | -   |        | add_ln223_667 | add | tadder | 0       |
+|     a_V_456_fu_811_p2        | -   |        | a_V_456       | add | tadder | 0       |
+|     c_V_456_fu_906_p2        | -   |        | c_V_456       | add | fabric | 0       |
+|     add_ln223_670_fu_516_p2  | -   |        | add_ln223_670 | add | tadder | 0       |
+|     a_V_457_fu_522_p2        | -   |        | a_V_457       | add | tadder | 0       |
+|     c_V_457_fu_647_p2        | -   |        | c_V_457       | add | fabric | 0       |
+|     add_ln223_673_fu_847_p2  | -   |        | add_ln223_673 | add | tadder | 0       |
+|     a_V_458_fu_853_p2        | -   |        | a_V_458       | add | tadder | 0       |
+|     c_V_458_fu_937_p2        | -   |        | c_V_458       | add | fabric | 0       |
+|     add_ln223_676_fu_1051_p2 | -   |        | add_ln223_676 | add | tadder | 0       |
+|     a_V_459_fu_1057_p2       | -   |        | a_V_459       | add | tadder | 0       |
+|     c_V_459_fu_1193_p2       | -   |        | c_V_459       | add | fabric | 0       |
+|     add_ln223_679_fu_1319_p2 | -   |        | add_ln223_679 | add | tadder | 0       |
+|     a_V_460_fu_1325_p2       | -   |        | a_V_460       | add | tadder | 0       |
+|     c_V_460_fu_1478_p2       | -   |        | c_V_460       | add | fabric | 0       |
+|     add_ln223_682_fu_1067_p2 | -   |        | add_ln223_682 | add | tadder | 0       |
+|     a_V_461_fu_1073_p2       | -   |        | a_V_461       | add | tadder | 0       |
+|     c_V_461_fu_1204_p2       | -   |        | c_V_461       | add | fabric | 0       |
+|     add_ln223_685_fu_1360_p2 | -   |        | add_ln223_685 | add | tadder | 0       |
+|     a_V_462_fu_1366_p2       | -   |        | a_V_462       | add | tadder | 0       |
+|     c_V_462_fu_1516_p2       | -   |        | c_V_462       | add | fabric | 0       |
+|     add_ln223_688_fu_1102_p2 | -   |        | add_ln223_688 | add | tadder | 0       |
+|     a_V_463_fu_1108_p2       | -   |        | a_V_463       | add | tadder | 0       |
+|     c_V_463_fu_1234_p2       | -   |        | c_V_463       | add | fabric | 0       |
+|     add_ln223_691_fu_1401_p2 | -   |        | add_ln223_691 | add | tadder | 0       |
+|     a_V_464_fu_1407_p2       | -   |        | a_V_464       | add | tadder | 0       |
+|     c_V_464_fu_1554_p2       | -   |        | c_V_464       | add | fabric | 0       |
+|     add_ln223_694_fu_1137_p2 | -   |        | add_ln223_694 | add | tadder | 0       |
+|     a_V_465_fu_1143_p2       | -   |        | a_V_465       | add | tadder | 0       |
+|     c_V_465_fu_1264_p2       | -   |        | c_V_465       | add | fabric | 0       |
+|     add_ln223_697_fu_1442_p2 | -   |        | add_ln223_697 | add | tadder | 0       |
+|     a_V_466_fu_1448_p2       | -   |        | a_V_466       | add | tadder | 0       |
+|     c_V_466_fu_1592_p2       | -   |        | c_V_466       | add | fabric | 0       |
+|   + blake_round_0            | 0   |        |               |     |        |         |
+|     add_ln223_fu_342_p2      | -   |        | add_ln223     | add | tadder | 0       |
+|     a_V_483_fu_348_p2        | -   |        | a_V_483       | add | tadder | 0       |
+|     c_V_483_fu_554_p2        | -   |        | c_V_483       | add | fabric | 0       |
+|     add_ln223_702_fu_683_p2  | -   |        | add_ln223_702 | add | tadder | 0       |
+|     a_V_484_fu_689_p2        | -   |        | a_V_484       | add | tadder | 0       |
+|     c_V_484_fu_865_p2        | -   |        | c_V_484       | add | fabric | 0       |
+|     add_ln223_705_fu_400_p2  | -   |        | add_ln223_705 | add | tadder | 0       |
+|     a_V_485_fu_406_p2        | -   |        | a_V_485       | add | tadder | 0       |
+|     c_V_485_fu_585_p2        | -   |        | c_V_485       | add | fabric | 0       |
+|     add_ln223_708_fu_725_p2  | -   |        | add_ln223_708 | add | tadder | 0       |
+|     a_V_486_fu_731_p2        | -   |        | a_V_486       | add | tadder | 0       |
+|     c_V_486_fu_876_p2        | -   |        | c_V_486       | add | fabric | 0       |
+|     add_ln223_711_fu_458_p2  | -   |        | add_ln223_711 | add | tadder | 0       |
+|     a_V_487_fu_464_p2        | -   |        | a_V_487       | add | tadder | 0       |
+|     c_V_487_fu_616_p2        | -   |        | c_V_487       | add | fabric | 0       |
+|     add_ln223_714_fu_786_p2  | -   |        | add_ln223_714 | add | tadder | 0       |
+|     a_V_488_fu_792_p2        | -   |        | a_V_488       | add | tadder | 0       |
+|     c_V_488_fu_907_p2        | -   |        | c_V_488       | add | fabric | 0       |
+|     add_ln223_717_fu_516_p2  | -   |        | add_ln223_717 | add | tadder | 0       |
+|     a_V_489_fu_522_p2        | -   |        | a_V_489       | add | tadder | 0       |
+|     c_V_489_fu_647_p2        | -   |        | c_V_489       | add | fabric | 0       |
+|     add_ln223_720_fu_828_p2  | -   |        | add_ln223_720 | add | tadder | 0       |
+|     a_V_490_fu_834_p2        | -   |        | a_V_490       | add | tadder | 0       |
+|     c_V_490_fu_938_p2        | -   |        | c_V_490       | add | fabric | 0       |
+|     add_ln223_723_fu_1052_p2 | -   |        | add_ln223_723 | add | tadder | 0       |
+|     a_V_491_fu_1058_p2       | -   |        | a_V_491       | add | tadder | 0       |
+|     c_V_491_fu_1194_p2       | -   |        | c_V_491       | add | fabric | 0       |
+|     add_ln223_726_fu_1320_p2 | -   |        | add_ln223_726 | add | tadder | 0       |
+|     a_V_492_fu_1326_p2       | -   |        | a_V_492       | add | tadder | 0       |
+|     c_V_492_fu_1479_p2       | -   |        | c_V_492       | add | fabric | 0       |
+|     add_ln223_729_fu_1068_p2 | -   |        | add_ln223_729 | add | tadder | 0       |
+|     a_V_493_fu_1074_p2       | -   |        | a_V_493       | add | tadder | 0       |
+|     c_V_493_fu_1205_p2       | -   |        | c_V_493       | add | fabric | 0       |
+|     add_ln223_732_fu_1361_p2 | -   |        | add_ln223_732 | add | tadder | 0       |
+|     a_V_494_fu_1367_p2       | -   |        | a_V_494       | add | tadder | 0       |
+|     c_V_494_fu_1517_p2       | -   |        | c_V_494       | add | fabric | 0       |
+|     add_ln223_735_fu_1103_p2 | -   |        | add_ln223_735 | add | tadder | 0       |
+|     a_V_495_fu_1109_p2       | -   |        | a_V_495       | add | tadder | 0       |
+|     c_V_495_fu_1235_p2       | -   |        | c_V_495       | add | fabric | 0       |
+|     add_ln223_738_fu_1402_p2 | -   |        | add_ln223_738 | add | tadder | 0       |
+|     a_V_496_fu_1408_p2       | -   |        | a_V_496       | add | tadder | 0       |
+|     c_V_496_fu_1555_p2       | -   |        | c_V_496       | add | fabric | 0       |
+|     add_ln223_741_fu_1138_p2 | -   |        | add_ln223_741 | add | tadder | 0       |
+|     a_V_497_fu_1144_p2       | -   |        | a_V_497       | add | tadder | 0       |
+|     c_V_497_fu_1265_p2       | -   |        | c_V_497       | add | fabric | 0       |
+|     add_ln223_744_fu_1443_p2 | -   |        | add_ln223_744 | add | tadder | 0       |
+|     a_V_498_fu_1449_p2       | -   |        | a_V_498       | add | tadder | 0       |
+|     c_V_498_fu_1593_p2       | -   |        | c_V_498       | add | fabric | 0       |
++------------------------------+-----+--------+---------------+-----+--------+---------+
+
+
+================================================================
+== Bind Storage Report
+================================================================
+  No bind storage info in design
+
+================================================================
+== User Pragma Report
+================================================================
+* Valid Pragma Syntax
++----------------------+--------------------------+----------------------------------------------------+
+| Type                 | Options                  | Location                                           |
++----------------------+--------------------------+----------------------------------------------------+
+| inline               |                          | ../include/hw/./warphash.h:73 in rotr              |
+| inline               |                          | ../include/hw/./warphash.h:81 in rotl              |
+| inline               |                          | ../include/hw/./warphash.h:89 in concat_vector     |
+| inline               |                          | ../include/hw/./warphash.h:99 in reverse_bytes_128 |
+| inline               |                          | ../include/hw/./warphash.h:108 in reverse_bytes_64 |
+| inline               |                          | ../include/hw/./warphash.h:117 in reverse_bytes_32 |
+| inline               |                          | ../src/hw/core/blake.cpp:41 in pad_head            |
+| inline               |                          | ../src/hw/core/blake.cpp:52 in pad_tail            |
+| inline               |                          | ../src/hw/core/blake.cpp:63 in g                   |
+| function_instantiate | variable=round           | ../src/hw/core/blake.cpp:81 in blake_round, round  |
+| pipeline             | II=1                     | ../src/hw/core/blake.cpp:82 in blake_round         |
+| function_instantiate | variable=mode            | ../src/hw/core/blake.cpp:127 in blake, mode        |
+| pipeline             | II=1                     | ../src/hw/core/blake.cpp:128 in blake              |
+| pipeline             | II=1                     | ../src/hw/core/blake.cpp:174 in blake_head         |
+| pipeline             | II=1                     | ../src/hw/core/blake.cpp:183 in blake_tail         |
+| interface            | ap_none port=msg         | DIRECTIVE in blake_tail, msg                       |
+| interface            | ap_ctrl_none port=return | DIRECTIVE in blake_tail, return                    |
++----------------------+--------------------------+----------------------------------------------------+
+
+

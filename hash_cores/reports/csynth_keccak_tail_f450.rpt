@@ -1,0 +1,142 @@
+
+
+================================================================
+== Synthesis Summary Report of 'keccak_tail'
+================================================================
++ General Information: 
+    * Date:           Fri Apr  1 03:27:49 2022
+    * Version:        2021.2 (Build 3367213 on Tue Oct 19 02:47:39 MDT 2021)
+    * Project:        keccak_tail
+    * Solution:       keccak_tail_f450 (Vivado IP Flow Target)
+    * Product family: virtexuplus
+    * Target device:  xcvu33p-fsvh2104-2-e
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +-------------------------+------+------+---------+--------+----------+---------+------+----------+------+----+------------+--------------+-----+
+    |         Modules         | Issue|      | Latency | Latency| Iteration|         | Trip |          |      |    |            |              |     |
+    |         & Loops         | Type | Slack| (cycles)|  (ns)  |  Latency | Interval| Count| Pipelined| BRAM | DSP|     FF     |      LUT     | URAM|
+    +-------------------------+------+------+---------+--------+----------+---------+------+----------+------+----+------------+--------------+-----+
+    |+ keccak_tail            |     -|  0.18|       24|  53.328|         -|        1|     -|       yes|     -|   -|  38401 (4%)|  175150 (39%)|    -|
+    | + keccak1600            |     -|  0.18|       23|  51.106|         -|        1|     -|       yes|     -|   -|  37825 (4%)|  175118 (39%)|    -|
+    |  + keccak1600_round_23  |     -|  0.47|        0|   0.000|         -|        1|     -|       yes|     -|   -|           -|     5632 (1%)|    -|
+    |  + keccak1600_round_22  |     -|  0.18|        0|   0.000|         -|        1|     -|       yes|     -|   -|           -|     7552 (1%)|    -|
+    |  + keccak1600_round_21  |     -|  0.18|        0|   0.000|         -|        1|     -|       yes|     -|   -|           -|     7552 (1%)|    -|
+    |  + keccak1600_round_20  |     -|  0.18|        0|   0.000|         -|        1|     -|       yes|     -|   -|           -|     7552 (1%)|    -|
+    |  + keccak1600_round_19  |     -|  0.18|        0|   0.000|         -|        1|     -|       yes|     -|   -|           -|     7552 (1%)|    -|
+    |  + keccak1600_round_18  |     -|  0.18|        0|   0.000|         -|        1|     -|       yes|     -|   -|           -|     7552 (1%)|    -|
+    |  + keccak1600_round_17  |     -|  0.18|        0|   0.000|         -|        1|     -|       yes|     -|   -|           -|     7552 (1%)|    -|
+    |  + keccak1600_round_16  |     -|  0.18|        0|   0.000|         -|        1|     -|       yes|     -|   -|           -|     7552 (1%)|    -|
+    |  + keccak1600_round_15  |     -|  0.18|        0|   0.000|         -|        1|     -|       yes|     -|   -|           -|     7552 (1%)|    -|
+    |  + keccak1600_round_14  |     -|  0.18|        0|   0.000|         -|        1|     -|       yes|     -|   -|           -|     7552 (1%)|    -|
+    |  + keccak1600_round_13  |     -|  0.18|        0|   0.000|         -|        1|     -|       yes|     -|   -|           -|     7552 (1%)|    -|
+    |  + keccak1600_round_12  |     -|  0.18|        0|   0.000|         -|        1|     -|       yes|     -|   -|           -|     7552 (1%)|    -|
+    |  + keccak1600_round_11  |     -|  0.18|        0|   0.000|         -|        1|     -|       yes|     -|   -|           -|     7552 (1%)|    -|
+    |  + keccak1600_round_10  |     -|  0.18|        0|   0.000|         -|        1|     -|       yes|     -|   -|           -|     7552 (1%)|    -|
+    |  + keccak1600_round_9   |     -|  0.18|        0|   0.000|         -|        1|     -|       yes|     -|   -|           -|     7552 (1%)|    -|
+    |  + keccak1600_round_8   |     -|  0.18|        0|   0.000|         -|        1|     -|       yes|     -|   -|           -|     7552 (1%)|    -|
+    |  + keccak1600_round_7   |     -|  0.18|        0|   0.000|         -|        1|     -|       yes|     -|   -|           -|     7552 (1%)|    -|
+    |  + keccak1600_round_6   |     -|  0.18|        0|   0.000|         -|        1|     -|       yes|     -|   -|           -|     7552 (1%)|    -|
+    |  + keccak1600_round_5   |     -|  0.18|        0|   0.000|         -|        1|     -|       yes|     -|   -|           -|     7552 (1%)|    -|
+    |  + keccak1600_round_4   |     -|  0.18|        0|   0.000|         -|        1|     -|       yes|     -|   -|           -|     7552 (1%)|    -|
+    |  + keccak1600_round_3   |     -|  0.18|        0|   0.000|         -|        1|     -|       yes|     -|   -|           -|     7552 (1%)|    -|
+    |  + keccak1600_round_2   |     -|  0.18|        0|   0.000|         -|        1|     -|       yes|     -|   -|           -|     7552 (1%)|    -|
+    |  + keccak1600_round_1   |     -|  0.18|        0|   0.000|         -|        1|     -|       yes|     -|   -|           -|     7552 (1%)|    -|
+    |  + keccak1600_round_0   |     -|  0.18|        0|   0.000|         -|        1|     -|       yes|     -|   -|           -|    3328 (~0%)|    -|
+    +-------------------------+------+------+---------+--------+----------+---------+------+----------+------+----+------------+--------------+-----+
+
+
+================================================================
+== HW Interfaces
+================================================================
+* REGISTER
++-----------+---------+----------+
+| Interface | Mode    | Bitwidth |
++-----------+---------+----------+
+| ap_return |         | 1024     |
+| msg       | ap_none | 1024     |
++-----------+---------+----------+
+
+* TOP LEVEL CONTROL
++-----------+--------------+--------+
+| Interface | Type         | Ports  |
++-----------+--------------+--------+
+| ap_clk    | clock        | ap_clk |
+| ap_ctrl   | ap_ctrl_none |        |
++-----------+--------------+--------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++----------+-----------+------------+
+| Argument | Direction | Datatype   |
++----------+-----------+------------+
+| msg      | in        | hash_pkt_t |
+| return   | out       | hash_pkt_t |
++----------+-----------+------------+
+
+* SW-to-HW Mapping
++----------+--------------+---------+
+| Argument | HW Interface | HW Type |
++----------+--------------+---------+
+| msg      | msg          | port    |
+| return   | ap_return    | port    |
++----------+--------------+---------+
+
+
+================================================================
+== Bind Op Report
+================================================================
+  No bind op info in design
+
+================================================================
+== Bind Storage Report
+================================================================
+  No bind storage info in design
+
+================================================================
+== User Pragma Report
+================================================================
+* Valid Pragma Syntax
++----------------------+--------------------------+------------------------------------------------------------------------+
+| Type                 | Options                  | Location                                                               |
++----------------------+--------------------------+------------------------------------------------------------------------+
+| inline               |                          | ../include/hw/./state_matrix.h:25 in statematrix<rows, cols, s>        |
+| function_instantiate | variable=order           | ../include/hw/./state_matrix.h:42 in statematrix<rows, cols, s>, order |
+| inline               |                          | ../include/hw/./state_matrix.h:43 in statematrix<rows, cols, s>        |
+| function_instantiate | variable=order           | ../include/hw/./state_matrix.h:61 in to_uint, order                    |
+| inline               |                          | ../include/hw/./state_matrix.h:62 in to_uint                           |
+| inline               |                          | ../include/hw/./state_matrix.h:110 in operator[]                       |
+| inline               |                          | ../include/hw/./state_matrix.h:115 in get_col                          |
+| inline               |                          | ../include/hw/./state_matrix.h:124 in operator^                        |
+| inline               |                          | ../include/hw/./state_matrix.h:135 in operator+                        |
+| inline               |                          | ../include/hw/./state_matrix.h:146 in rotr_row                         |
+| inline               |                          | ../include/hw/./state_matrix.h:155 in rotl_row                         |
+| inline               |                          | ../include/hw/./state_matrix.h:164 in rotr_rows                        |
+| inline               |                          | ../include/hw/./state_matrix.h:175 in rotl_rows                        |
+| inline               |                          | ../include/hw/./state_matrix.h:186 in rotd_cols                        |
+| inline               |                          | ../include/hw/./state_matrix.h:197 in rotu_cols                        |
+| inline               |                          | ../include/hw/./warphash.h:73 in rotr                                  |
+| inline               |                          | ../include/hw/./warphash.h:81 in rotl                                  |
+| inline               |                          | ../include/hw/./warphash.h:89 in concat_vector                         |
+| inline               |                          | ../include/hw/./warphash.h:99 in reverse_bytes_128                     |
+| inline               |                          | ../include/hw/./warphash.h:108 in reverse_bytes_64                     |
+| inline               |                          | ../include/hw/./warphash.h:117 in reverse_bytes_32                     |
+| inline               |                          | ../src/hw/core/keccak.cpp:25 in pad_head                               |
+| inline               |                          | ../src/hw/core/keccak.cpp:36 in pad_tail                               |
+| inline               |                          | ../src/hw/core/keccak.cpp:45 in to_state                               |
+| inline               |                          | ../src/hw/core/keccak.cpp:76 in to_hash                                |
+| function_instantiate | variable=round           | ../src/hw/core/keccak.cpp:90 in keccak1600_round, round                |
+| pipeline             | II=1                     | ../src/hw/core/keccak.cpp:91 in keccak1600_round                       |
+| pipeline             | II=1                     | ../src/hw/core/keccak.cpp:119 in keccak1600                            |
+| pipeline             | II=1                     | ../src/hw/core/keccak.cpp:128 in keccak_head                           |
+| pipeline             | II=1                     | ../src/hw/core/keccak.cpp:137 in keccak_tail                           |
+| interface            | ap_none port=msg         | DIRECTIVE in keccak_tail, msg                                          |
+| interface            | ap_ctrl_none port=return | DIRECTIVE in keccak_tail, return                                       |
++----------------------+--------------------------+------------------------------------------------------------------------+
+
+

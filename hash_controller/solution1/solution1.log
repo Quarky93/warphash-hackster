@@ -1,0 +1,250 @@
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2021.2 (64-bit)
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+==============================================================
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 2.22ns.
+INFO: [HLS 200-1611] Setting target device to 'xcvu35p-fsvh2892-2L-e'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+INFO: [HLS 200-1510] Running: set_part xcvu35p-fsvh2892-2L-e 
+INFO: [HLS 200-1510] Running: create_clock -period 2.22 -name default 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 2.22ns.
+INFO: [HLS 200-1510] Running: csynth_design 
+INFO: [HLS 200-111] Finished File checks and directory preparation: CPU user time: 0.01 seconds. CPU system time: 0 seconds. Elapsed time: 0.01 seconds; current allocated memory: 1.190 GB.
+INFO: [HLS 200-10] Analyzing design file 'hash_controller/hash_controller.cpp' ... 
+INFO: [HLS 200-111] Finished Source Code Analysis and Preprocessing: CPU user time: 2.58 seconds. CPU system time: 0.24 seconds. Elapsed time: 2.31 seconds; current allocated memory: 281.289 MB.
+INFO: [HLS 200-777] Using interface defaults for 'Vivado' flow target.
+INFO: [HLS 214-284] Auto array partition mode is set into default.
+INFO: [HLS 214-241] Aggregating maxi variable 'wr_1' with compact=none mode in 256-bits (hash_controller/hash_controller.cpp:84:0)
+INFO: [HLS 214-241] Aggregating maxi variable 'wr_0' with compact=none mode in 256-bits (hash_controller/hash_controller.cpp:84:0)
+INFO: [HLS 214-241] Aggregating maxi variable 'rd_1' with compact=none mode in 256-bits (hash_controller/hash_controller.cpp:84:0)
+INFO: [HLS 214-241] Aggregating maxi variable 'rd_0' with compact=none mode in 256-bits (hash_controller/hash_controller.cpp:84:0)
+INFO: [HLS 214-270] Starting automatic array partition analysis...
+INFO: [HLS 214-115] Multiple burst reads of length 2 and bit width 256 has been inferred on bundle 'rd_0'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (hash_controller/hash_controller.cpp:17:24)
+INFO: [HLS 214-115] Multiple burst reads of length 2 and bit width 256 has been inferred on bundle 'rd_1'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (hash_controller/hash_controller.cpp:17:24)
+INFO: [HLS 214-115] Multiple burst writes of length 2 and bit width 256 has been inferred on bundle 'wr_0'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (hash_controller/hash_controller.cpp:35:3)
+INFO: [HLS 214-115] Multiple burst writes of length 2 and bit width 256 has been inferred on bundle 'wr_1'. These burst requests might be further partitioned into multiple requests during RTL generation, based on max_read_burst_length or max_write_burst_length settings. (hash_controller/hash_controller.cpp:35:3)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i512.s_struct.ap_uint<512>s' into 'ingress(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 1ul>, 0>&, ap_uint<256> const*, int, bool, ap_uint<512>) (.31.1)' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:304:5)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i1.s_struct.ap_uint<1>s' into 'ingress(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 1ul>, 0>&, ap_uint<256> const*, int, bool, ap_uint<512>) (.31.1)' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:304:5)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i64.s_struct.ap_uint<64>s' into 'ingress(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 1ul>, 0>&, ap_uint<256> const*, int, bool, ap_uint<512>) (.31.1)' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:304:5)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i512.s_struct.ap_uint<512>s' into 'ingress(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 1ul>, 0>&, ap_uint<256> const*, int, bool, ap_uint<512>) (.1)' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:304:5)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i1.s_struct.ap_uint<1>s' into 'ingress(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 1ul>, 0>&, ap_uint<256> const*, int, bool, ap_uint<512>) (.1)' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:304:5)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i64.s_struct.ap_uint<64>s' into 'ingress(hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 1ul>, 0>&, ap_uint<256> const*, int, bool, ap_uint<512>) (.1)' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:304:5)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.unpack.none.s_struct.ap_uint<512>s.i512' into 'egress(ap_uint<256>*, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 1ul>, 0>&, int, bool, ap_uint<512>, hls::stream<ap_uint<32>, 0>&) (.32.1)' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:293:5)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i32.s_struct.ap_uint<32>s' into 'egress(ap_uint<256>*, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 1ul>, 0>&, int, bool, ap_uint<512>, hls::stream<ap_uint<32>, 0>&) (.32.1)' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:173:9)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i256.s_struct.ap_uint<256>s' into 'egress(ap_uint<256>*, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 1ul>, 0>&, int, bool, ap_uint<512>, hls::stream<ap_uint<32>, 0>&) (.32.1)' (hash_controller/hash_controller.cpp:34:20)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i256.s_struct.ap_uint<256>s' into 'egress(ap_uint<256>*, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 1ul>, 0>&, int, bool, ap_uint<512>, hls::stream<ap_uint<32>, 0>&) (.32.1)' (hash_controller/hash_controller.cpp:33:20)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.unpack.none.s_struct.ap_uint<1>s.i1' into 'egress(ap_uint<256>*, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 1ul>, 0>&, int, bool, ap_uint<512>, hls::stream<ap_uint<32>, 0>&) (.32.1)' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:293:5)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.unpack.none.s_struct.ap_uint<64>s.i64' into 'egress(ap_uint<256>*, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 1ul>, 0>&, int, bool, ap_uint<512>, hls::stream<ap_uint<32>, 0>&) (.32.1)' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:293:5)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.unpack.none.s_struct.ap_uint<512>s.i512' into 'egress(ap_uint<256>*, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 1ul>, 0>&, int, bool, ap_uint<512>, hls::stream<ap_uint<32>, 0>&) (.1)' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:293:5)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i32.s_struct.ap_uint<32>s' into 'egress(ap_uint<256>*, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 1ul>, 0>&, int, bool, ap_uint<512>, hls::stream<ap_uint<32>, 0>&) (.1)' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/hls_stream_39.h:173:9)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i256.s_struct.ap_uint<256>s' into 'egress(ap_uint<256>*, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 1ul>, 0>&, int, bool, ap_uint<512>, hls::stream<ap_uint<32>, 0>&) (.1)' (hash_controller/hash_controller.cpp:34:20)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.pack.none.i256.s_struct.ap_uint<256>s' into 'egress(ap_uint<256>*, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 1ul>, 0>&, int, bool, ap_uint<512>, hls::stream<ap_uint<32>, 0>&) (.1)' (hash_controller/hash_controller.cpp:33:20)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.unpack.none.s_struct.ap_uint<1>s.i1' into 'egress(ap_uint<256>*, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 1ul>, 0>&, int, bool, ap_uint<512>, hls::stream<ap_uint<32>, 0>&) (.1)' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:293:5)
+INFO: [HLS 214-131] Inlining function '_llvm.fpga.unpack.none.s_struct.ap_uint<64>s.i64' into 'egress(ap_uint<256>*, hls::stream<hls::axis<ap_uint<512>, 0ul, 0ul, 1ul>, 0>&, int, bool, ap_uint<512>, hls::stream<ap_uint<32>, 0>&) (.1)' (/tools/Xilinx/Vitis_HLS/2021.2/common/technology/autopilot/ap_axi_sdata.h:293:5)
+INFO: [HLS 200-111] Finished Compiling Optimization and Transform: CPU user time: 1.89 seconds. CPU system time: 0.16 seconds. Elapsed time: 2.05 seconds; current allocated memory: 282.480 MB.
+INFO: [HLS 200-111] Finished Checking Pragmas: CPU user time: 0 seconds. CPU system time: 0.01 seconds. Elapsed time: 0 seconds; current allocated memory: 282.480 MB.
+INFO: [HLS 200-10] Starting code transformations ...
+INFO: [HLS 200-111] Finished Standard Transforms: CPU user time: 0.07 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.08 seconds; current allocated memory: 312.641 MB.
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO: [HLS 200-111] Finished Checking Synthesizability: CPU user time: 0.21 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.22 seconds; current allocated memory: 368.395 MB.
+INFO: [XFORM 203-712] Applying dataflow to function 'pass' (hash_controller/hash_controller.cpp:56:1), detected/extracted 4 process function(s): 
+	 'ingress'
+	 'ingress.1'
+	 'egress'
+	 'egress.1'.
+INFO: [HLS 200-111] Finished Loop, function and other optimizations: CPU user time: 0.25 seconds. CPU system time: 0 seconds. Elapsed time: 0.25 seconds; current allocated memory: 438.926 MB.
+INFO: [HLS 200-111] Finished Architecture Synthesis: CPU user time: 0.13 seconds. CPU system time: 0.02 seconds. Elapsed time: 0.15 seconds; current allocated memory: 499.277 MB.
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO: [HLS 200-10] Synthesizing 'hash_controller' ...
+WARNING: [SYN 201-103] Legalizing function name 'ingress.1' to 'ingress_1'.
+WARNING: [SYN 201-103] Legalizing function name 'egress.1' to 'egress_1'.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'ingress' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_13_1'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 2, Final II = 2, Depth = 11, loop 'VITIS_LOOP_13_1'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.06 seconds. CPU system time: 0.01 seconds. Elapsed time: 0.07 seconds; current allocated memory: 500.176 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 500.176 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'ingress_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_13_1'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 2, Final II = 2, Depth = 11, loop 'VITIS_LOOP_13_1'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 500.453 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 500.453 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'egress' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_29_1'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 2, Final II = 2, Depth = 9, loop 'VITIS_LOOP_29_1'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 500.750 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 500.750 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'egress_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-61] Pipelining loop 'VITIS_LOOP_29_1'.
+INFO: [HLS 200-1470] Pipelining result : Target II = 2, Final II = 2, Depth = 9, loop 'VITIS_LOOP_29_1'
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.03 seconds; current allocated memory: 501.020 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 501.020 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'pass' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 501.020 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 501.020 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'hash_controller' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111] Finished Scheduling: CPU user time: 0.04 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 501.020 MB.
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111] Finished Binding: CPU user time: 0.02 seconds. CPU system time: 0 seconds. Elapsed time: 0.02 seconds; current allocated memory: 501.020 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'ingress' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'ingress' pipeline 'VITIS_LOOP_13_1' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'ingress'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.03 seconds. CPU system time: 0 seconds. Elapsed time: 0.04 seconds; current allocated memory: 501.242 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'ingress_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'ingress_1' pipeline 'VITIS_LOOP_13_1' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'ingress_1'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.08 seconds. CPU system time: 0 seconds. Elapsed time: 0.07 seconds; current allocated memory: 502.863 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'egress' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'egress' pipeline 'VITIS_LOOP_29_1' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'egress'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.08 seconds. CPU system time: 0 seconds. Elapsed time: 0.08 seconds; current allocated memory: 504.500 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'egress_1' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-1030] Apply Unified Pipeline Control on module 'egress_1' pipeline 'VITIS_LOOP_29_1' pipeline type 'loop pipeline'
+INFO: [RTGEN 206-100] Finished creating RTL model for 'egress_1'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.08 seconds. CPU system time: 0 seconds. Elapsed time: 0.09 seconds; current allocated memory: 506.129 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'pass' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_rd_0_AWVALID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_rd_0_AWADDR' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_rd_0_AWID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_rd_0_AWLEN' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_rd_0_AWSIZE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_rd_0_AWBURST' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_rd_0_AWLOCK' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_rd_0_AWCACHE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_rd_0_AWPROT' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_rd_0_AWQOS' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_rd_0_AWREGION' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_rd_0_AWUSER' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_rd_0_WVALID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_rd_0_WDATA' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_rd_0_WSTRB' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_rd_0_WLAST' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_rd_0_WID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_rd_0_WUSER' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_rd_0_BREADY' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_rd_1_AWVALID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_rd_1_AWADDR' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_rd_1_AWID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_rd_1_AWLEN' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_rd_1_AWSIZE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_rd_1_AWBURST' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_rd_1_AWLOCK' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_rd_1_AWCACHE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_rd_1_AWPROT' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_rd_1_AWQOS' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_rd_1_AWREGION' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_rd_1_AWUSER' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_rd_1_WVALID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_rd_1_WDATA' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_rd_1_WSTRB' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_rd_1_WLAST' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_rd_1_WID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_rd_1_WUSER' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_rd_1_BREADY' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_wr_0_ARVALID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_wr_0_ARADDR' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_wr_0_ARID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_wr_0_ARLEN' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_wr_0_ARSIZE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_wr_0_ARBURST' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_wr_0_ARLOCK' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_wr_0_ARCACHE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_wr_0_ARPROT' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_wr_0_ARQOS' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_wr_0_ARREGION' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_wr_0_ARUSER' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_wr_0_RREADY' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_wr_1_ARVALID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_wr_1_ARADDR' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_wr_1_ARID' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_wr_1_ARLEN' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_wr_1_ARSIZE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_wr_1_ARBURST' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_wr_1_ARLOCK' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_wr_1_ARCACHE' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_wr_1_ARPROT' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_wr_1_ARQOS' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_wr_1_ARREGION' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_wr_1_ARUSER' to 0.
+WARNING: [RTGEN 206-101] Setting dangling out port 'pass/m_axi_wr_1_RREADY' to 0.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'pass'.
+INFO: [HLS 200-111] Finished Creating RTL model: CPU user time: 0.13 seconds. CPU system time: 0 seconds. Elapsed time: 0.13 seconds; current allocated memory: 508.812 MB.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'hash_controller' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+WARNING: [RTGEN 206-101] Design contains AXI ports. Reset is fixed to synchronous and active low.
+INFO: [RTGEN 206-500] Setting interface mode on port 'hash_controller/rd_0' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'hash_controller/rd_1' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'hash_controller/wr_0' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'hash_controller/wr_1' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'hash_controller/rd_0_offset' to 's_axilite & ap_none'.
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2021.2 (64-bit)
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+==============================================================
+==============================================================
+Vitis HLS - High-Level Synthesis from C, C++ and OpenCL v2021.2 (64-bit)
+Copyright 1986-2021 Xilinx, Inc. All Rights Reserved.
+==============================================================

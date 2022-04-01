@@ -1,0 +1,267 @@
+
+
+================================================================
+== Synthesis Summary Report of 'groestl_tail'
+================================================================
++ General Information: 
+    * Date:           Fri Apr  1 03:37:32 2022
+    * Version:        2021.2 (Build 3367213 on Tue Oct 19 02:47:39 MDT 2021)
+    * Project:        groestl_tail
+    * Solution:       groestl_tail_f450 (Vivado IP Flow Target)
+    * Product family: virtexuplus
+    * Target device:  xcvu33p-fsvh2104-2-e
+    
+
++ Performance & Resource Estimates: 
+    
+    PS: '+' for module; 'o' for loop; '*' for dataflow
+    +--------------------+------+------+---------+---------+----------+---------+------+----------+------+----+------------+--------------+-----+
+    |       Modules      | Issue|      | Latency | Latency | Iteration|         | Trip |          |      |    |            |              |     |
+    |       & Loops      | Type | Slack| (cycles)|   (ns)  |  Latency | Interval| Count| Pipelined| BRAM | DSP|     FF     |      LUT     | URAM|
+    +--------------------+------+------+---------+---------+----------+---------+------+----------+------+----+------------+--------------+-----+
+    |+ groestl_tail      |     -|  0.07|       55|  122.210|         -|        1|     -|       yes|     -|   -|  46288 (5%)|  404551 (92%)|    -|
+    | + groestl          |     -|  0.07|       55|  122.210|         -|        1|     -|       yes|     -|   -|  45656 (5%)|  404517 (92%)|    -|
+    |  + compress_p      |     -|  0.30|       27|   59.994|         -|        1|     -|       yes|     -|   -|  13493 (1%)|  129427 (29%)|    -|
+    |   + inner_round_p  |     -|  0.30|        1|    2.222|         -|        1|     -|       yes|     -|   -|    10 (~0%)|     9244 (2%)|    -|
+    |   + inner_round_p  |     -|  0.30|        1|    2.222|         -|        1|     -|       yes|     -|   -|    10 (~0%)|     9244 (2%)|    -|
+    |   + inner_round_p  |     -|  0.30|        1|    2.222|         -|        1|     -|       yes|     -|   -|    10 (~0%)|     9244 (2%)|    -|
+    |   + inner_round_p  |     -|  0.30|        1|    2.222|         -|        1|     -|       yes|     -|   -|    10 (~0%)|     9244 (2%)|    -|
+    |   + inner_round_p  |     -|  0.30|        1|    2.222|         -|        1|     -|       yes|     -|   -|    10 (~0%)|     9244 (2%)|    -|
+    |   + inner_round_p  |     -|  0.30|        1|    2.222|         -|        1|     -|       yes|     -|   -|    10 (~0%)|     9244 (2%)|    -|
+    |   + inner_round_p  |     -|  0.30|        1|    2.222|         -|        1|     -|       yes|     -|   -|    10 (~0%)|     9244 (2%)|    -|
+    |   + inner_round_p  |     -|  0.30|        1|    2.222|         -|        1|     -|       yes|     -|   -|    10 (~0%)|     9244 (2%)|    -|
+    |   + inner_round_p  |     -|  0.30|        1|    2.222|         -|        1|     -|       yes|     -|   -|    10 (~0%)|     9244 (2%)|    -|
+    |   + inner_round_p  |     -|  0.30|        1|    2.222|         -|        1|     -|       yes|     -|   -|    10 (~0%)|     9244 (2%)|    -|
+    |   + inner_round_p  |     -|  0.30|        1|    2.222|         -|        1|     -|       yes|     -|   -|    10 (~0%)|     9244 (2%)|    -|
+    |   + inner_round_p  |     -|  0.30|        1|    2.222|         -|        1|     -|       yes|     -|   -|    10 (~0%)|     9244 (2%)|    -|
+    |   + inner_round_p  |     -|  0.30|        1|    2.222|         -|        1|     -|       yes|     -|   -|    10 (~0%)|     9244 (2%)|    -|
+    |   + inner_round_p  |     -|  0.30|        1|    2.222|         -|        1|     -|       yes|     -|   -|    10 (~0%)|     9244 (2%)|    -|
+    |  + compress_p      |     -|  0.30|       27|   59.994|         -|        1|     -|       yes|     -|   -|  13493 (1%)|  129427 (29%)|    -|
+    |   + inner_round_p  |     -|  0.30|        1|    2.222|         -|        1|     -|       yes|     -|   -|    10 (~0%)|     9244 (2%)|    -|
+    |   + inner_round_p  |     -|  0.30|        1|    2.222|         -|        1|     -|       yes|     -|   -|    10 (~0%)|     9244 (2%)|    -|
+    |   + inner_round_p  |     -|  0.30|        1|    2.222|         -|        1|     -|       yes|     -|   -|    10 (~0%)|     9244 (2%)|    -|
+    |   + inner_round_p  |     -|  0.30|        1|    2.222|         -|        1|     -|       yes|     -|   -|    10 (~0%)|     9244 (2%)|    -|
+    |   + inner_round_p  |     -|  0.30|        1|    2.222|         -|        1|     -|       yes|     -|   -|    10 (~0%)|     9244 (2%)|    -|
+    |   + inner_round_p  |     -|  0.30|        1|    2.222|         -|        1|     -|       yes|     -|   -|    10 (~0%)|     9244 (2%)|    -|
+    |   + inner_round_p  |     -|  0.30|        1|    2.222|         -|        1|     -|       yes|     -|   -|    10 (~0%)|     9244 (2%)|    -|
+    |   + inner_round_p  |     -|  0.30|        1|    2.222|         -|        1|     -|       yes|     -|   -|    10 (~0%)|     9244 (2%)|    -|
+    |   + inner_round_p  |     -|  0.30|        1|    2.222|         -|        1|     -|       yes|     -|   -|    10 (~0%)|     9244 (2%)|    -|
+    |   + inner_round_p  |     -|  0.30|        1|    2.222|         -|        1|     -|       yes|     -|   -|    10 (~0%)|     9244 (2%)|    -|
+    |   + inner_round_p  |     -|  0.30|        1|    2.222|         -|        1|     -|       yes|     -|   -|    10 (~0%)|     9244 (2%)|    -|
+    |   + inner_round_p  |     -|  0.30|        1|    2.222|         -|        1|     -|       yes|     -|   -|    10 (~0%)|     9244 (2%)|    -|
+    |   + inner_round_p  |     -|  0.30|        1|    2.222|         -|        1|     -|       yes|     -|   -|    10 (~0%)|     9244 (2%)|    -|
+    |   + inner_round_p  |     -|  0.30|        1|    2.222|         -|        1|     -|       yes|     -|   -|    10 (~0%)|     9244 (2%)|    -|
+    |  + compress_q      |     -|  0.30|       27|   59.994|         -|        1|     -|       yes|     -|   -|  13493 (1%)|  142069 (32%)|    -|
+    |   + inner_round_q  |     -|  0.30|        1|    2.222|         -|        1|     -|       yes|     -|   -|    10 (~0%)|    10147 (2%)|    -|
+    |   + inner_round_q  |     -|  0.30|        1|    2.222|         -|        1|     -|       yes|     -|   -|    10 (~0%)|    10147 (2%)|    -|
+    |   + inner_round_q  |     -|  0.30|        1|    2.222|         -|        1|     -|       yes|     -|   -|    10 (~0%)|    10147 (2%)|    -|
+    |   + inner_round_q  |     -|  0.30|        1|    2.222|         -|        1|     -|       yes|     -|   -|    10 (~0%)|    10147 (2%)|    -|
+    |   + inner_round_q  |     -|  0.30|        1|    2.222|         -|        1|     -|       yes|     -|   -|    10 (~0%)|    10147 (2%)|    -|
+    |   + inner_round_q  |     -|  0.30|        1|    2.222|         -|        1|     -|       yes|     -|   -|    10 (~0%)|    10147 (2%)|    -|
+    |   + inner_round_q  |     -|  0.30|        1|    2.222|         -|        1|     -|       yes|     -|   -|    10 (~0%)|    10147 (2%)|    -|
+    |   + inner_round_q  |     -|  0.30|        1|    2.222|         -|        1|     -|       yes|     -|   -|    10 (~0%)|    10147 (2%)|    -|
+    |   + inner_round_q  |     -|  0.30|        1|    2.222|         -|        1|     -|       yes|     -|   -|    10 (~0%)|    10147 (2%)|    -|
+    |   + inner_round_q  |     -|  0.30|        1|    2.222|         -|        1|     -|       yes|     -|   -|    10 (~0%)|    10147 (2%)|    -|
+    |   + inner_round_q  |     -|  0.30|        1|    2.222|         -|        1|     -|       yes|     -|   -|    10 (~0%)|    10147 (2%)|    -|
+    |   + inner_round_q  |     -|  0.30|        1|    2.222|         -|        1|     -|       yes|     -|   -|    10 (~0%)|    10147 (2%)|    -|
+    |   + inner_round_q  |     -|  0.30|        1|    2.222|         -|        1|     -|       yes|     -|   -|    10 (~0%)|    10147 (2%)|    -|
+    |   + inner_round_q  |     -|  0.30|        1|    2.222|         -|        1|     -|       yes|     -|   -|    10 (~0%)|    10147 (2%)|    -|
+    +--------------------+------+------+---------+---------+----------+---------+------+----------+------+----+------------+--------------+-----+
+
+
+================================================================
+== HW Interfaces
+================================================================
+* REGISTER
++-----------+---------+----------+
+| Interface | Mode    | Bitwidth |
++-----------+---------+----------+
+| ap_return |         | 1024     |
+| msg       | ap_none | 1024     |
++-----------+---------+----------+
+
+* TOP LEVEL CONTROL
++-----------+--------------+--------+
+| Interface | Type         | Ports  |
++-----------+--------------+--------+
+| ap_clk    | clock        | ap_clk |
+| ap_ctrl   | ap_ctrl_none |        |
++-----------+--------------+--------+
+
+
+================================================================
+== SW I/O Information
+================================================================
+* Top Function Arguments
++----------+-----------+------------+
+| Argument | Direction | Datatype   |
++----------+-----------+------------+
+| msg      | in        | hash_pkt_t |
+| return   | out       | hash_pkt_t |
++----------+-----------+------------+
+
+* SW-to-HW Mapping
++----------+--------------+---------+
+| Argument | HW Interface | HW Type |
++----------+--------------+---------+
+| msg      | msg          | port    |
+| return   | ap_return    | port    |
++----------+--------------+---------+
+
+
+================================================================
+== Bind Op Report
+================================================================
+  No bind op info in design
+
+================================================================
+== Bind Storage Report
+================================================================
++--------------------+------+------+--------+-----------+---------+--------+---------+
+| Name               | BRAM | URAM | Pragma | Variable  | Storage | Impl   | Latency |
++--------------------+------+------+--------+-----------+---------+--------+---------+
+| + groestl_tail     | 0    | 0    |        |           |         |        |         |
+|  + groestl         | 0    | 0    |        |           |         |        |         |
+|   + compress_p     | 0    | 0    |        |           |         |        |         |
+|    + inner_round_p | 0    | 0    |        |           |         |        |         |
+|      rom_i_i_1_U   | -    | -    | pragma | rom_i_i_1 | rom_np  | lutram | 1       |
+|    + inner_round_p | 0    | 0    |        |           |         |        |         |
+|      rom_i_i_1_U   | -    | -    | pragma | rom_i_i_1 | rom_np  | lutram | 1       |
+|    + inner_round_p | 0    | 0    |        |           |         |        |         |
+|      rom_i_i_1_U   | -    | -    | pragma | rom_i_i_1 | rom_np  | lutram | 1       |
+|    + inner_round_p | 0    | 0    |        |           |         |        |         |
+|      rom_i_i_1_U   | -    | -    | pragma | rom_i_i_1 | rom_np  | lutram | 1       |
+|    + inner_round_p | 0    | 0    |        |           |         |        |         |
+|      rom_i_i_1_U   | -    | -    | pragma | rom_i_i_1 | rom_np  | lutram | 1       |
+|    + inner_round_p | 0    | 0    |        |           |         |        |         |
+|      rom_i_i_1_U   | -    | -    | pragma | rom_i_i_1 | rom_np  | lutram | 1       |
+|    + inner_round_p | 0    | 0    |        |           |         |        |         |
+|      rom_i_i_1_U   | -    | -    | pragma | rom_i_i_1 | rom_np  | lutram | 1       |
+|    + inner_round_p | 0    | 0    |        |           |         |        |         |
+|      rom_i_i_1_U   | -    | -    | pragma | rom_i_i_1 | rom_np  | lutram | 1       |
+|    + inner_round_p | 0    | 0    |        |           |         |        |         |
+|      rom_i_i_1_U   | -    | -    | pragma | rom_i_i_1 | rom_np  | lutram | 1       |
+|    + inner_round_p | 0    | 0    |        |           |         |        |         |
+|      rom_i_i_1_U   | -    | -    | pragma | rom_i_i_1 | rom_np  | lutram | 1       |
+|    + inner_round_p | 0    | 0    |        |           |         |        |         |
+|      rom_i_i_1_U   | -    | -    | pragma | rom_i_i_1 | rom_np  | lutram | 1       |
+|    + inner_round_p | 0    | 0    |        |           |         |        |         |
+|      rom_i_i_1_U   | -    | -    | pragma | rom_i_i_1 | rom_np  | lutram | 1       |
+|    + inner_round_p | 0    | 0    |        |           |         |        |         |
+|      rom_i_i_1_U   | -    | -    | pragma | rom_i_i_1 | rom_np  | lutram | 1       |
+|    + inner_round_p | 0    | 0    |        |           |         |        |         |
+|      rom_i_i_1_U   | -    | -    | pragma | rom_i_i_1 | rom_np  | lutram | 1       |
+|   + compress_q     | 0    | 0    |        |           |         |        |         |
+|    + inner_round_q | 0    | 0    |        |           |         |        |         |
+|      rom_i_i_U     | -    | -    | pragma | rom_i_i   | rom_np  | lutram | 1       |
+|    + inner_round_q | 0    | 0    |        |           |         |        |         |
+|      rom_i_i_U     | -    | -    | pragma | rom_i_i   | rom_np  | lutram | 1       |
+|    + inner_round_q | 0    | 0    |        |           |         |        |         |
+|      rom_i_i_U     | -    | -    | pragma | rom_i_i   | rom_np  | lutram | 1       |
+|    + inner_round_q | 0    | 0    |        |           |         |        |         |
+|      rom_i_i_U     | -    | -    | pragma | rom_i_i   | rom_np  | lutram | 1       |
+|    + inner_round_q | 0    | 0    |        |           |         |        |         |
+|      rom_i_i_U     | -    | -    | pragma | rom_i_i   | rom_np  | lutram | 1       |
+|    + inner_round_q | 0    | 0    |        |           |         |        |         |
+|      rom_i_i_U     | -    | -    | pragma | rom_i_i   | rom_np  | lutram | 1       |
+|    + inner_round_q | 0    | 0    |        |           |         |        |         |
+|      rom_i_i_U     | -    | -    | pragma | rom_i_i   | rom_np  | lutram | 1       |
+|    + inner_round_q | 0    | 0    |        |           |         |        |         |
+|      rom_i_i_U     | -    | -    | pragma | rom_i_i   | rom_np  | lutram | 1       |
+|    + inner_round_q | 0    | 0    |        |           |         |        |         |
+|      rom_i_i_U     | -    | -    | pragma | rom_i_i   | rom_np  | lutram | 1       |
+|    + inner_round_q | 0    | 0    |        |           |         |        |         |
+|      rom_i_i_U     | -    | -    | pragma | rom_i_i   | rom_np  | lutram | 1       |
+|    + inner_round_q | 0    | 0    |        |           |         |        |         |
+|      rom_i_i_U     | -    | -    | pragma | rom_i_i   | rom_np  | lutram | 1       |
+|    + inner_round_q | 0    | 0    |        |           |         |        |         |
+|      rom_i_i_U     | -    | -    | pragma | rom_i_i   | rom_np  | lutram | 1       |
+|    + inner_round_q | 0    | 0    |        |           |         |        |         |
+|      rom_i_i_U     | -    | -    | pragma | rom_i_i   | rom_np  | lutram | 1       |
+|    + inner_round_q | 0    | 0    |        |           |         |        |         |
+|      rom_i_i_U     | -    | -    | pragma | rom_i_i   | rom_np  | lutram | 1       |
+|   + compress_p     | 0    | 0    |        |           |         |        |         |
+|    + inner_round_p | 0    | 0    |        |           |         |        |         |
+|      rom_i_i_1_U   | -    | -    | pragma | rom_i_i_1 | rom_np  | lutram | 1       |
+|    + inner_round_p | 0    | 0    |        |           |         |        |         |
+|      rom_i_i_1_U   | -    | -    | pragma | rom_i_i_1 | rom_np  | lutram | 1       |
+|    + inner_round_p | 0    | 0    |        |           |         |        |         |
+|      rom_i_i_1_U   | -    | -    | pragma | rom_i_i_1 | rom_np  | lutram | 1       |
+|    + inner_round_p | 0    | 0    |        |           |         |        |         |
+|      rom_i_i_1_U   | -    | -    | pragma | rom_i_i_1 | rom_np  | lutram | 1       |
+|    + inner_round_p | 0    | 0    |        |           |         |        |         |
+|      rom_i_i_1_U   | -    | -    | pragma | rom_i_i_1 | rom_np  | lutram | 1       |
+|    + inner_round_p | 0    | 0    |        |           |         |        |         |
+|      rom_i_i_1_U   | -    | -    | pragma | rom_i_i_1 | rom_np  | lutram | 1       |
+|    + inner_round_p | 0    | 0    |        |           |         |        |         |
+|      rom_i_i_1_U   | -    | -    | pragma | rom_i_i_1 | rom_np  | lutram | 1       |
+|    + inner_round_p | 0    | 0    |        |           |         |        |         |
+|      rom_i_i_1_U   | -    | -    | pragma | rom_i_i_1 | rom_np  | lutram | 1       |
+|    + inner_round_p | 0    | 0    |        |           |         |        |         |
+|      rom_i_i_1_U   | -    | -    | pragma | rom_i_i_1 | rom_np  | lutram | 1       |
+|    + inner_round_p | 0    | 0    |        |           |         |        |         |
+|      rom_i_i_1_U   | -    | -    | pragma | rom_i_i_1 | rom_np  | lutram | 1       |
+|    + inner_round_p | 0    | 0    |        |           |         |        |         |
+|      rom_i_i_1_U   | -    | -    | pragma | rom_i_i_1 | rom_np  | lutram | 1       |
+|    + inner_round_p | 0    | 0    |        |           |         |        |         |
+|      rom_i_i_1_U   | -    | -    | pragma | rom_i_i_1 | rom_np  | lutram | 1       |
+|    + inner_round_p | 0    | 0    |        |           |         |        |         |
+|      rom_i_i_1_U   | -    | -    | pragma | rom_i_i_1 | rom_np  | lutram | 1       |
+|    + inner_round_p | 0    | 0    |        |           |         |        |         |
+|      rom_i_i_1_U   | -    | -    | pragma | rom_i_i_1 | rom_np  | lutram | 1       |
++--------------------+------+------+--------+-----------+---------+--------+---------+
+
+
+================================================================
+== User Pragma Report
+================================================================
+* Valid Pragma Syntax
++----------------------+--------------------------------------+------------------------------------------------------------------------+
+| Type                 | Options                              | Location                                                               |
++----------------------+--------------------------------------+------------------------------------------------------------------------+
+| inline               |                                      | ../include/hw/./state_matrix.h:25 in statematrix<rows, cols, s>        |
+| function_instantiate | variable=order                       | ../include/hw/./state_matrix.h:42 in statematrix<rows, cols, s>, order |
+| inline               |                                      | ../include/hw/./state_matrix.h:43 in statematrix<rows, cols, s>        |
+| function_instantiate | variable=order                       | ../include/hw/./state_matrix.h:61 in to_uint, order                    |
+| inline               |                                      | ../include/hw/./state_matrix.h:62 in to_uint                           |
+| inline               |                                      | ../include/hw/./state_matrix.h:110 in operator[]                       |
+| inline               |                                      | ../include/hw/./state_matrix.h:115 in get_col                          |
+| inline               |                                      | ../include/hw/./state_matrix.h:124 in operator^                        |
+| inline               |                                      | ../include/hw/./state_matrix.h:135 in operator+                        |
+| inline               |                                      | ../include/hw/./state_matrix.h:146 in rotr_row                         |
+| inline               |                                      | ../include/hw/./state_matrix.h:155 in rotl_row                         |
+| inline               |                                      | ../include/hw/./state_matrix.h:164 in rotr_rows                        |
+| inline               |                                      | ../include/hw/./state_matrix.h:175 in rotl_rows                        |
+| inline               |                                      | ../include/hw/./state_matrix.h:186 in rotd_cols                        |
+| inline               |                                      | ../include/hw/./state_matrix.h:197 in rotu_cols                        |
+| inline               |                                      | ../include/hw/./warphash.h:73 in rotr                                  |
+| inline               |                                      | ../include/hw/./warphash.h:81 in rotl                                  |
+| inline               |                                      | ../include/hw/./warphash.h:89 in concat_vector                         |
+| inline               |                                      | ../include/hw/./warphash.h:99 in reverse_bytes_128                     |
+| inline               |                                      | ../include/hw/./warphash.h:108 in reverse_bytes_64                     |
+| inline               |                                      | ../include/hw/./warphash.h:117 in reverse_bytes_32                     |
+| inline               |                                      | ../src/hw/core/groestl.cpp:8 in pad_head                               |
+| inline               |                                      | ../src/hw/core/groestl.cpp:18 in pad_tail                              |
+| inline               |                                      | ../src/hw/core/groestl.cpp:28 in to_state                              |
+| inline               |                                      | ../src/hw/core/groestl.cpp:33 in to_hash                               |
+| inline               |                                      | ../src/hw/core/groestl.cpp:46 in sbox                                  |
+| bind_storage         | variable=rom type=rom_np impl=lutram | ../src/hw/core/groestl.cpp:65 in sbox, rom                             |
+| inline               |                                      | ../src/hw/core/groestl.cpp:70 in mul2                                  |
+| inline               |                                      | ../src/hw/core/groestl.cpp:84 in mix_bytes                             |
+| inline               |                                      | ../src/hw/core/groestl.cpp:120 in add_round_constant_p                 |
+| inline               |                                      | ../src/hw/core/groestl.cpp:129 in add_round_constant_q                 |
+| inline               |                                      | ../src/hw/core/groestl.cpp:143 in sub_bytes                            |
+| inline               |                                      | ../src/hw/core/groestl.cpp:154 in shift_bytes_p                        |
+| inline               |                                      | ../src/hw/core/groestl.cpp:162 in shift_bytes_q                        |
+| pipeline             | II=1                                 | ../src/hw/core/groestl.cpp:170 in inner_round_p                        |
+| pipeline             | II=1                                 | ../src/hw/core/groestl.cpp:179 in inner_round_q                        |
+| pipeline             | II=1                                 | ../src/hw/core/groestl.cpp:188 in compress_p                           |
+| pipeline             | II=1                                 | ../src/hw/core/groestl.cpp:197 in compress_q                           |
+| pipeline             | II=1                                 | ../src/hw/core/groestl.cpp:206 in groestl                              |
+| pipeline             | II=1                                 | ../src/hw/core/groestl.cpp:215 in groestl_head                         |
+| pipeline             | II=1                                 | ../src/hw/core/groestl.cpp:224 in groestl_tail                         |
+| interface            | ap_none port=msg                     | DIRECTIVE in groestl_tail, msg                                         |
+| interface            | ap_ctrl_none port=return             | DIRECTIVE in groestl_tail, return                                      |
++----------------------+--------------------------------------+------------------------------------------------------------------------+
+
+
